@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Activator
+  - Rhythm Game Camera
+  - Track
+  - Buttons
+  - Canvas
+  - EventSystem
+  - NoteHolder
+  - GameManager
+  - GamesPlus
   layers:
   - Default
   - TransparentFX
