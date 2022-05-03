@@ -22,13 +22,13 @@ public class NoteObject : MonoBehaviour
             {
                 gameObject.SetActive(false);
 
-                if (Mathf.Abs(transform.position.y+0.3799999f) > 0.25f)
+                if (transform.position.y > -0.3399999 || transform.position.y < -0.4199999)
                 {
                     Debug.Log("Hit");
                     GameManager.instance.NormalHit();
                     Instantiate(hitEffect, transform.position, hitEffect.transform.rotation);
                 }
-                else if(Mathf.Abs(transform.position.y+0.3799999f) > 0.05f)
+                else if(transform.position.y > -0.3699999 || transform.position.y < -0.3899999)
                 {
                     Debug.Log("Good");
                     GameManager.instance.GoodHit();
