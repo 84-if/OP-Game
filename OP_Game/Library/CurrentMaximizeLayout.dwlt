@@ -22,9 +22,9 @@ MonoBehaviour:
     width: 1536
     height: 730.8
   m_MinSize: {x: 678, y: 471}
-  m_MaxSize: {x: 14001, y: 14021}
+  m_MaxSize: {x: 14000, y: 14021}
   vertical: 0
-  controlID: 10740
+  controlID: 2034
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -135,10 +135,10 @@ MonoBehaviour:
     y: 0
     width: 1172.8
     height: 730.8
-  m_MinSize: {x: 402, y: 471}
+  m_MinSize: {x: 403, y: 471}
   m_MaxSize: {x: 10000, y: 14021}
   vertical: 1
-  controlID: 10741
+  controlID: 2035
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -160,10 +160,10 @@ MonoBehaviour:
     y: 0
     width: 1172.8
     height: 459.2
-  m_MinSize: {x: 402, y: 221}
-  m_MaxSize: {x: 8002, y: 4021}
+  m_MinSize: {x: 403, y: 221}
+  m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 10742
+  controlID: 2036
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -183,8 +183,8 @@ MonoBehaviour:
     y: 0
     width: 233.6
     height: 459.2
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -220,7 +220,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 8acfffffa4cfffff6ad0ffff74d0ffff2aeeffffd8f3ffff62fbffff464300009a680000a6680000d8680000
+      m_ExpandedIDs: 80f3ffff9af3ffff60f4ffff6af4ffff2efbffffc6430000044400007e610000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -514,22 +514,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Our Assets
+    - Assets
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/Our Assets
+  - Assets
   m_LastFoldersGridSize: 96
   m_LastProjectPath: C:\Users\ptrnk\Documents\GitHub\OP-Game\OP_Game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: d4430000
-    m_LastClickedID: 17364
-    m_ExpandedIDs: 00000000be430000c0430000c2430000c4430000c6430000c843000000ca9a3b
+    m_SelectedIDs: 78440000
+    m_LastClickedID: 17528
+    m_ExpandedIDs: 00000000784400007a4400007c4400007e440000804400008244000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -557,7 +557,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000be430000c0430000c2430000c4430000c6430000c843000000ca9a3b
+    m_ExpandedIDs: 00000000784400007a4400007c4400007e440000804400008244000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -582,8 +582,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 0e780000
-    m_LastClickedInstanceID: 30734
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000a2450000b4460000a448000000000000
     m_RenameOverlay:
@@ -695,7 +695,7 @@ MonoBehaviour:
     m_CachedPref: -160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: 30734
+  m_LastInspectedObjectInstanceID: -1
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_LockTracker:
