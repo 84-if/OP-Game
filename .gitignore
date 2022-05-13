@@ -1,5 +1,5 @@
 # Unity generated
-OP-Game/[Ll]ibrary/
+OP-Game/[Ll]ibrary/*
 OP-Game/[Tt]emp/
 OP-Game/[Oo]bj/
 OP-Game/[Bb]uild/
@@ -8,7 +8,7 @@ OP-Game/[Ll]ogs/
 OP-Game/[Mm]emoryCaptures/
 OP-Game/.idea/
 OP-Game/UserSettings/
-OP_Game/[Ll]ibrary/
+OP_Game/[Ll]ibrary/*
 OP_Game/[Tt]emp/
 OP_Game/[Oo]bj/
 OP_Game/[Bb]uild/
