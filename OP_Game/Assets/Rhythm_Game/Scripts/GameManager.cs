@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     public Text percentHitText, normalsText, goodsText, perfectsText, missesText, rankText, finalScoreText;
 
     private readonly List<string> _objectsToDisable = new List<string> 
-        {"Rhythm Game Camera", "Track", "Buttons", "Canvas", "EventSystem", "NoteHolder", "GameManager", "GamesPlus"};
+        {"Rhythm Game Camera", "Track", "Buttons", "ScoreText", "MultiplierText", "EventSystem", "NoteHolder", "GameManager", "GamesPlus"};
     
     void Start()
     {
@@ -81,14 +81,13 @@ public class GameManager : MonoBehaviour
                             var buttons = GameObject.FindGameObjectWithTag(objectTag).GetComponent<Transform>();
                             buttons.transform.position = new Vector3(3.39f, -0.3799999f, -50f);
                             break;
-                        case "Canvas":
-                            var canvas = GameObject.FindGameObjectWithTag(objectTag).GetComponent<Canvas>();
-                            var canvasScaler = GameObject.FindGameObjectWithTag(objectTag).GetComponent<CanvasScaler>();
-                            var graphicRaycaster = GameObject.FindGameObjectWithTag(objectTag)
-                                .GetComponent<GraphicRaycaster>();
-                            canvas.enabled = false;
-                            canvasScaler.enabled = false;
-                            graphicRaycaster.enabled = false;
+                        case "ScoreText":
+                            var scoreText = GameObject.FindGameObjectWithTag(objectTag).GetComponent<Text>();
+                            scoreText.enabled = true;
+                            break;
+                        case "MultiplierText":
+                            var multiplierText = GameObject.FindGameObjectWithTag(objectTag).GetComponent<Text>();
+                            multiplierText.enabled = true;
                             break;
                         case "EventSystem":
                             var eventSystem = GameObject.FindGameObjectWithTag(objectTag).GetComponent<EventSystem>();
