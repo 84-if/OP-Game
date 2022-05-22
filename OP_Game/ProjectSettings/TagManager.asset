@@ -17,6 +17,7 @@ TagManager:
   - MultiplierText
   - DialogueWindow
   - DialogueText
+  - Girl
   layers:
   - Default
   - TransparentFX

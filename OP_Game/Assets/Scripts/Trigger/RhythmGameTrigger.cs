@@ -10,10 +10,6 @@ namespace Trigger
     {
         private readonly List<string> _objectsToEnable = new List<string> 
         {"Rhythm Game Camera", "Track", "Buttons", "ScoreText", "MultiplierText", "EventSystem", "NoteHolder", "GameManager", "GamesPlus"};
-        void Start()
-        {
-            
-        }
 
         private void OnTriggerStay2D (Collider2D other)
         {
@@ -21,11 +17,16 @@ namespace Trigger
             {
                 var movementScript = other.GetComponent<Movement>();
                 var mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+                var girl = GameObject.FindGameObjectWithTag("Girl");
                 if (!movementScript._looksRight)
                     movementScript.Flip();
                 movementScript.enabled = false;
                 mainCamera.enabled = false;
-                other.gameObject.transform.position = new Vector3(1.756116f, -0.08638373f, 0f);
+                other.gameObject.transform.position = new Vector3(1.657f, -0.08638373f, 0f);
+                girl.gameObject.transform.position = new Vector3(2.565f, -0.08638373f, 0f);
+                girl.GetComponent<SpriteRenderer>().flipX = true;
+                girl.GetComponent<Animator>().Play("GirlDance");
+                other.GetComponent<Animator>().Play("PlayerDance");
                 foreach (var objectTag in _objectsToEnable)
                 {
                     switch (objectTag)

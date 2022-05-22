@@ -83,11 +83,11 @@ public class GameManager : MonoBehaviour
                             break;
                         case "ScoreText":
                             var scoreText = GameObject.FindGameObjectWithTag(objectTag).GetComponent<Text>();
-                            scoreText.enabled = true;
+                            scoreText.enabled = false;
                             break;
                         case "MultiplierText":
                             var multiplierText = GameObject.FindGameObjectWithTag(objectTag).GetComponent<Text>();
-                            multiplierText.enabled = true;
+                            multiplierText.enabled = false;
                             break;
                         case "EventSystem":
                             var eventSystem = GameObject.FindGameObjectWithTag(objectTag).GetComponent<EventSystem>();

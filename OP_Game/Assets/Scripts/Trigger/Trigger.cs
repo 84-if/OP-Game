@@ -38,7 +38,7 @@ namespace Trigger
                     chase.leftLimit = 1.009f + 0.9575f;
                     chase.rightLimit = 5.17f - 0.958f;
                     chase.upperLimit = 0.5f;
-                    chase.bottomLimit = -0.038f;
+                    chase.bottomLimit = -0.028f;
                 }
             }
         }  
