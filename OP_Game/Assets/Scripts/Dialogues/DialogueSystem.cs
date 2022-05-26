@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -18,7 +20,6 @@ namespace Dialogues
             StartDialog();
         }
 
-        // Update is called once per frame
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.Return))
@@ -43,7 +44,7 @@ namespace Dialogues
 
         IEnumerator TypeLine()
         {
-            foreach(char c in lines[index].ToCharArray())
+            foreach(char c in lines[index])
             {
                 text.text += c;
                 yield return new WaitForSeconds(TextSpeed);

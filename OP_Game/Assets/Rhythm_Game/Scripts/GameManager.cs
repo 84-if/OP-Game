@@ -35,8 +35,7 @@ public class GameManager : MonoBehaviour
     public GameObject resultsScreen;
     public Text percentHitText, normalsText, goodsText, perfectsText, missesText, rankText, finalScoreText;
 
-    private readonly List<string> _objectsToDisable = new List<string> 
-        {"Rhythm Game Camera", "Track", "Buttons", "ScoreText", "MultiplierText", "EventSystem", "NoteHolder", "GameManager", "GamesPlus"};
+    private readonly List<string> _objectsToDisable = new() {"Rhythm Game Trigger", "Rhythm Game Camera", "Track", "Buttons", "ScoreText", "MultiplierText", "EventSystem", "NoteHolder", "GameManager", "GamesPlus"};
     
     void Start()
     {
@@ -69,6 +68,10 @@ public class GameManager : MonoBehaviour
                 {
                     switch (objectTag)
                     {
+                        case "Rhythm Game Trigger":
+                            var gameTrigger = GameObject.FindGameObjectWithTag(objectTag).GetComponent<BoxCollider2D>();
+                            gameTrigger.enabled = false;
+                            break;
                         case "Rhythm Game Camera":
                             var gameCamera = GameObject.FindGameObjectWithTag(objectTag).GetComponent<Camera>();
                             gameCamera.enabled = false;
