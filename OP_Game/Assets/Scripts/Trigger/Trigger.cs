@@ -2,6 +2,7 @@ using Dialogues;
 using MainCamera;
 using UnityEngine;
 using TMPro;
+using Player;
 using UnityEngine.UI;
 
 namespace Trigger
@@ -25,6 +26,8 @@ namespace Trigger
             var player = GameObject.FindGameObjectWithTag("Player");
             if(other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
             {
+                var movementScript = other.GetComponent<Movement>();
+                movementScript.enabled = false;
                 dialogueWindow.enabled = true;
                 dialogueText.enabled = true;
                 textScript.enabled = true;
@@ -34,6 +37,8 @@ namespace Trigger
             }
             if (other.CompareTag("Player") && !textScript.isTalking)
             {
+                var movementScript = other.GetComponent<Movement>();
+                movementScript.enabled = true;
                 textScript.isTalking = true;
                 dialogueWindow.enabled = false;
                 dialogueText.enabled = false;
