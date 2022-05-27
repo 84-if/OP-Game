@@ -1382,6 +1382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BGM: {fileID: 228683970}
+  MusicVolume: 0.5
 --- !u!1 &247374812
 GameObject:
   m_ObjectHideFlags: 0
@@ -1592,6 +1593,7 @@ GameObject:
   m_Component:
   - component: {fileID: 298977887}
   - component: {fileID: 298977886}
+  - component: {fileID: 298977888}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -1611,7 +1613,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 168e710ac82d9ad44930c19f852f9427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theMusic: {fileID: 640836488}
+  danceMusic: {fileID: 8300000, guid: e3903f052f6e1c84385cd598b244e788, type: 3}
+  theMusic: {fileID: 228683972}
   startPlaying: 0
   theBS: {fileID: 1850812363}
   currentScore: 0
@@ -1651,6 +1654,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &298977888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298977885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc91d6b4194ef9749a04ea16016d3ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BGM: {fileID: 640836488}
+  MusicVolume: 0
 --- !u!1 &301056504
 GameObject:
   m_ObjectHideFlags: 0
@@ -7836,6 +7853,7 @@ GameObject:
   - component: {fileID: 1356296099}
   - component: {fileID: 1356296098}
   - component: {fileID: 1356296097}
+  - component: {fileID: 1356296101}
   m_Layer: 0
   m_Name: Rhythm Game Trigger
   m_TagString: Rhythm Game Trigger
@@ -7948,6 +7966,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1356296101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356296096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ed057f2f39c1ba46a06e05b63383420, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1360260785
 GameObject:
   m_ObjectHideFlags: 0

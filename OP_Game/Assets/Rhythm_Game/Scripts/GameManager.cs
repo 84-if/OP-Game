@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public AudioSource theMusic;
+    public AudioClip danceMusic;
+    public AudioManager theMusic;
 
     public bool startPlaying;
 
@@ -55,13 +56,14 @@ public class GameManager : MonoBehaviour
             {
                 startPlaying = true;
                 theBS.hasStarted = true;
+                theMusic.ChangeBGM(danceMusic);
 
-                theMusic.Play();
+                theMusic.BGM.Play();
             }
         }
         else
         {
-            if (!theMusic.isPlaying && !resultsScreen.activeInHierarchy)
+            if (!theMusic.BGM.isPlaying && !resultsScreen.activeInHierarchy)
             {
                 // resultsScreen.SetActive(true);
                 foreach (var objectTag in _objectsToDisable)

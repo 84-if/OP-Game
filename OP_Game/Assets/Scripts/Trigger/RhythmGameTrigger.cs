@@ -24,7 +24,7 @@ namespace Trigger
             if(other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
             {
                 var movementScript = other.GetComponent<Movement>();
-                if (!movementScript._looksRight)
+                if (movementScript._looksRight)
                     movementScript.Flip();
                 movementScript.enabled = false;
                 dialogueWindow.enabled = true;
