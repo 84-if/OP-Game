@@ -115,7 +115,9 @@ public class GameManager : MonoBehaviour
                 }
                 var player = GameObject.FindGameObjectWithTag("Player");
                 var mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-                player.GetComponent<Movement>().enabled = true;
+                var trigger = GameObject.FindGameObjectWithTag("Rhythm Game Trigger").GetComponent<BoxCollider2D>();
+                trigger.enabled = false;
+                // player.GetComponent<Movement>().enabled = true;
                 mainCamera.enabled = true;
 
                 normalsText.text = "" + normalHits;
