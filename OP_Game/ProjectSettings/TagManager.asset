@@ -19,6 +19,8 @@ TagManager:
   - DialogueText
   - Girl
   - Rhythm Game Trigger
+  - AudioManager
+  - JopaTrigger
   layers:
   - Default
   - TransparentFX

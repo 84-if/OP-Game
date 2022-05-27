@@ -18,16 +18,22 @@ namespace Trigger
             chase = _ourCamera.GetComponent<Chase>();
         }
 
+        // void OnT
         private void OnTriggerStay2D (Collider2D other)
         {
+            
             var textScript = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<DialogueSystem>();
             var dialogueWindow = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Image>();
             var dialogueText = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<TextMeshProUGUI>();
             var player = GameObject.FindGameObjectWithTag("Player");
+            if(other.CompareTag("Player"))
+            {
+                Debug.Log("Стоит в триггере");
+            }
             if(other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
             {
                 var movementScript = other.GetComponent<Movement>();
-                // movementScript.enabled = false;
+                movementScript.enabled = false;
                 dialogueWindow.enabled = true;
                 dialogueText.enabled = true;
                 textScript.enabled = true;
@@ -37,6 +43,7 @@ namespace Trigger
             }
             if (other.CompareTag("Player") && !textScript.isTalking)
             {
+                Debug.Log("Начинается переход");
                 var movementScript = other.GetComponent<Movement>();
                 movementScript.enabled = true;
                 textScript.isTalking = true;

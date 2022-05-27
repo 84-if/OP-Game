@@ -1,5 +1,8 @@
 using System.Collections.Generic;
+using Dialogues;
 using Player;
+using TMPro;
+using Trigger;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -63,7 +66,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            if (!theMusic.BGM.isPlaying && !resultsScreen.activeInHierarchy)
+            if (!theMusic.BGM.isPlaying)
             {
                 // resultsScreen.SetActive(true);
                 foreach (var objectTag in _objectsToDisable)
@@ -115,12 +118,27 @@ public class GameManager : MonoBehaviour
                             break;
                     }
                 }
+                var audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioSource>();
+                audioManager.loop = true;
                 var player = GameObject.FindGameObjectWithTag("Player");
                 var mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
                 var trigger = GameObject.FindGameObjectWithTag("Rhythm Game Trigger").GetComponent<BoxCollider2D>();
                 trigger.enabled = false;
                 // player.GetComponent<Movement>().enabled = true;
                 mainCamera.enabled = true;
+                var dialogueWindow = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Image>();
+                var dialogueText = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<TextMeshProUGUI>();
+                var textScript = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<DialogueSystem>();
+                var jopaTrigger = GameObject.FindGameObjectWithTag("JopaTrigger").GetComponent<JopaTrigger>();
+                dialogueWindow.enabled = true;
+                dialogueText.enabled = true;
+                textScript.enabled = true;
+                textScript.Invoke("Start", 0);
+                textScript.lines = new[]
+                {
+                    "А ты вроде ничего. Пойдём, у меня там друзья."
+                };
+                
 
                 normalsText.text = "" + normalHits;
                 goodsText.text = goodHits.ToString();

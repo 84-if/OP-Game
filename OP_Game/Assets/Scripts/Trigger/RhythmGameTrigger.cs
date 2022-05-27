@@ -17,6 +17,7 @@ namespace Trigger
 
         private void OnTriggerStay2D (Collider2D other)
         {
+            Debug.Log("Стоит в триггере ритм");
             var dialogueWindow = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Image>();
             var dialogueText = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<TextMeshProUGUI>();
             var textScript = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<DialogueSystem>();
@@ -28,7 +29,7 @@ namespace Trigger
                 var movementScript = other.GetComponent<Movement>();
                 if (movementScript._looksRight)
                     movementScript.Flip();
-                // movementScript.enabled = false;
+                movementScript.enabled = false;
                 dialogueWindow.enabled = true;
                 dialogueText.enabled = true;
                 textScript.enabled = true;
@@ -45,12 +46,14 @@ namespace Trigger
             }
             if (other.CompareTag("Player") && textScript.isTalking == false)
             {
+                Debug.Log("Начал запуск");
                 StartRhythmGame();
             }
         }
 
         private void StartRhythmGame()
         {
+            var audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioSource>();
             var dialogueWindow = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Image>();
             var dialogueText = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<TextMeshProUGUI>();
             var textScript = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<DialogueSystem>();
@@ -58,6 +61,7 @@ namespace Trigger
             var girl = GameObject.FindGameObjectWithTag("Girl");
             var player = GameObject.FindGameObjectWithTag("Player");
             var movementScript = player.GetComponent<Movement>();
+            audioManager.loop = false;
             movementScript.enabled = false;
             mainCamera.enabled = false;
             textScript.isTalking = true;
