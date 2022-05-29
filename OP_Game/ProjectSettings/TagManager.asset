@@ -21,6 +21,8 @@ TagManager:
   - Rhythm Game Trigger
   - AudioManager
   - JopaTrigger
+  - Friend1
+  - Friend2
   layers:
   - Default
   - TransparentFX

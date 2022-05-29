@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Mover : MonoBehaviour
 {
@@ -12,12 +14,12 @@ public class Mover : MonoBehaviour
 
     private float progress;
 
-    private GameObject girl;
+    public GameObject npc;
     
     // Start is called before the first frame update
     void Start()
     {
-        girl = GameObject.FindGameObjectWithTag("Girl");
+        progress = 0f;
     }
 
     // Update is called once per frame
@@ -25,7 +27,7 @@ public class Mover : MonoBehaviour
     {
         transform.position = Vector3.Lerp(startPosition, endPosition, progress);
         progress += step;
-        if (endPosition.x == girl.transform.position.x)
-            girl.GetComponent<Animator>().Play("GirlIdle");
+        if (Math.Abs(endPosition.x - npc.transform.position.x) < 1e-9)
+            npc.GetComponent<Animator>().Play("GirlIdle");
     }
 }

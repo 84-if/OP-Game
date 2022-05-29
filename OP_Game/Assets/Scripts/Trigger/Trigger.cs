@@ -26,13 +26,13 @@ namespace Trigger
             var dialogueWindow = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Image>();
             var dialogueText = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<TextMeshProUGUI>();
             var player = GameObject.FindGameObjectWithTag("Player");
-            if(other.CompareTag("Player"))
-            {
-                Debug.Log("Стоит в триггере");
-            }
+            var movementScript = player.GetComponent<Movement>();
             if(other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
             {
-                var movementScript = other.GetComponent<Movement>();
+                
+                if(movementScript._looksRight)
+                    movementScript.Flip();
+                player.GetComponent<Animator>().Play("PlayerIdle");
                 movementScript.enabled = false;
                 dialogueWindow.enabled = true;
                 dialogueText.enabled = true;
@@ -41,10 +41,8 @@ namespace Trigger
                     "Жирно будет", "Ну ладно", "Будь аккуратнее, не задерживайся.", "Да да да…"};
                 
             }
-            if (other.CompareTag("Player") && !textScript.isTalking)
+            if(other.CompareTag("Player") && !textScript.isTalking)
             {
-                Debug.Log("Начинается переход");
-                var movementScript = other.GetComponent<Movement>();
                 movementScript.enabled = true;
                 textScript.isTalking = true;
                 dialogueWindow.enabled = false;

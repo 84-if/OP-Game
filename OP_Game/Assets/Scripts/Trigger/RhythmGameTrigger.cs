@@ -27,8 +27,10 @@ namespace Trigger
             var movementScript = other.GetComponent<Movement>();
             if(other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
             {
-                if (movementScript._looksRight)
+                if(movementScript._looksRight && player.transform.position.x > girl.transform.position.x ||
+                   !movementScript._looksRight && player.transform.position.x < girl.transform.position.x)
                     movementScript.Flip();
+                player.GetComponent<Animator>().Play("PlayerIdle");
                 movementScript.enabled = false;
                 dialogueWindow.enabled = true;
                 dialogueText.enabled = true;
@@ -46,10 +48,9 @@ namespace Trigger
             }
             if (other.CompareTag("Player") && textScript.isTalking == false)
             {
-                Debug.Log("Начал запуск");
-                movementScript.Flip();
+                if (!movementScript._looksRight)
+                    movementScript.Flip();
                 StartRhythmGame();
-                
             }
         }
 
