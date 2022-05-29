@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
     public GameObject resultsScreen;
     public Text percentHitText, normalsText, goodsText, perfectsText, missesText, rankText, finalScoreText;
 
+    public bool danceOver;
+    
     private readonly List<string> _objectsToDisable = new() {"Rhythm Game Trigger", "Rhythm Game Camera", "Track", "Buttons", "ScoreText", "MultiplierText", "EventSystem", "NoteHolder", "GameManager", "GamesPlus"};
     
     void Start()

@@ -24,9 +24,9 @@ namespace Trigger
             var mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
             var girl = GameObject.FindGameObjectWithTag("Girl");
             var player = GameObject.FindGameObjectWithTag("Player");
+            var movementScript = other.GetComponent<Movement>();
             if(other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
             {
-                var movementScript = other.GetComponent<Movement>();
                 if (movementScript._looksRight)
                     movementScript.Flip();
                 movementScript.enabled = false;
@@ -47,7 +47,9 @@ namespace Trigger
             if (other.CompareTag("Player") && textScript.isTalking == false)
             {
                 Debug.Log("Начал запуск");
+                movementScript.Flip();
                 StartRhythmGame();
+                
             }
         }
 

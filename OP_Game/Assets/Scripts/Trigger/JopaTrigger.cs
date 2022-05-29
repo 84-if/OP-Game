@@ -16,6 +16,7 @@ namespace Trigger
 
         public void OnTriggerStay2D(Collider2D other)
         {
+            var girl = GameObject.FindGameObjectWithTag("Girl");
             var player = GameObject.FindGameObjectWithTag("Player");
             var dialogueWindow = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Image>();
             var dialogueText = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<TextMeshProUGUI>();
@@ -30,6 +31,10 @@ namespace Trigger
                 dialogueWindow.enabled = false;
                 dialogueText.enabled = false;
                 textScript.enabled = false;
+                var girlWalkScript = GameObject.FindGameObjectWithTag("Girl").GetComponent<Mover>();
+                girlWalkScript.enabled = true;
+                girl.GetComponent<SpriteRenderer>().flipX = false;
+                girl.GetComponent<Animator>().Play("GirlWalk");
             }
         }
     }

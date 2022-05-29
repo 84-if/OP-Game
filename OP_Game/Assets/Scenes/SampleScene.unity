@@ -1640,6 +1640,7 @@ MonoBehaviour:
   missesText: {fileID: 1684017335}
   rankText: {fileID: 731201515}
   finalScoreText: {fileID: 216243149}
+  danceOver: 0
 --- !u!4 &298977887
 Transform:
   m_ObjectHideFlags: 0
@@ -2467,6 +2468,7 @@ GameObject:
   - component: {fileID: 548139665}
   - component: {fileID: 548139664}
   - component: {fileID: 548139666}
+  - component: {fileID: 548139667}
   m_Layer: 0
   m_Name: Girl
   m_TagString: Girl
@@ -2561,6 +2563,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &548139667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548139663}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d199ead4b4eb35d4d9d9ddce4773bc97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPosition: {x: 2.565, y: -0.08638373}
+  endPosition: {x: 4.3, y: 0}
+  step: 0.003
 --- !u!1 &549044369
 GameObject:
   m_ObjectHideFlags: 0
