@@ -1615,6 +1615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   danceMusic: {fileID: 8300000, guid: e3903f052f6e1c84385cd598b244e788, type: 3}
   theMusic: {fileID: 228683972}
+  partyMusic: {fileID: 8300000, guid: d4b95ae18d56d3245a52a2dd64938d12, type: 3}
   startPlaying: 0
   theBS: {fileID: 1850812363}
   currentScore: 0

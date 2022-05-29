@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 {
     public AudioClip danceMusic;
     public AudioManager theMusic;
+    public AudioClip partyMusic;
 
     public bool startPlaying;
 
@@ -55,14 +56,11 @@ public class GameManager : MonoBehaviour
     {
         if (!startPlaying)
         {
-            if (Input.anyKeyDown)
-            {
                 startPlaying = true;
                 theBS.hasStarted = true;
                 theMusic.ChangeBGM(danceMusic);
 
                 theMusic.BGM.Play();
-            }
         }
         else
         {
@@ -118,6 +116,9 @@ public class GameManager : MonoBehaviour
                             break;
                     }
                 }
+                
+                theMusic.ChangeBGM(partyMusic);
+                theMusic.BGM.Play();
                 var audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioSource>();
                 audioManager.loop = true;
                 var player = GameObject.FindGameObjectWithTag("Player");
