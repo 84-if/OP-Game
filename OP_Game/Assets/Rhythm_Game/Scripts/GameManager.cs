@@ -42,7 +42,8 @@ public class GameManager : MonoBehaviour
 
     public bool danceOver;
     
-    private readonly List<string> _objectsToDisable = new() {"Rhythm Game Trigger", "Rhythm Game Camera", "Track", "Buttons", "ScoreText", "MultiplierText", "EventSystem", "NoteHolder", "GameManager", "GamesPlus"};
+    private readonly List<string> _objectsToDisable = new() {"Rhythm Game Trigger", "Rhythm Game Camera", 
+        "Track", "Buttons", "ScoreText", "MultiplierText", "NoteHolder", "GameManager", "GamesPlus"};
     
     void Start()
     {
@@ -96,13 +97,6 @@ public class GameManager : MonoBehaviour
                         case "MultiplierText":
                             var multiplierText = GameObject.FindGameObjectWithTag(objectTag).GetComponent<Text>();
                             multiplierText.enabled = false;
-                            break;
-                        case "EventSystem":
-                            var eventSystem = GameObject.FindGameObjectWithTag(objectTag).GetComponent<EventSystem>();
-                            var standaloneInpModule = GameObject.FindGameObjectWithTag(objectTag)
-                                .GetComponent<StandaloneInputModule>();
-                            eventSystem.enabled = false;
-                            standaloneInpModule.enabled = false;
                             break;
                         case "NoteHolder":
                             var noteHolder = GameObject.FindGameObjectWithTag(objectTag).GetComponent<BeatScroller>();

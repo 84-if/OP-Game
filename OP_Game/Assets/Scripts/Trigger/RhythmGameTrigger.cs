@@ -13,7 +13,7 @@ namespace Trigger
     public class RhythmGameTrigger : MonoBehaviour
     {
         private readonly List<string> _objectsToEnable = new() {"Rhythm Game Camera", "Track", "Buttons", "ScoreText", 
-            "MultiplierText", "EventSystem", "NoteHolder", "GameManager", "GamesPlus"};
+            "MultiplierText", "NoteHolder", "GameManager", "GamesPlus"};
 
         private void OnTriggerStay2D (Collider2D other)
         {
@@ -99,14 +99,6 @@ namespace Trigger
                     case "MultiplierText":
                         var multiplierText = GameObject.FindGameObjectWithTag(objectTag).GetComponent<Text>();
                         multiplierText.enabled = true;
-                        break;
-                    case "EventSystem":
-                        var eventSystem = GameObject.FindGameObjectWithTag(objectTag)
-                            .GetComponent<EventSystem>();
-                        var standaloneInpModule = GameObject.FindGameObjectWithTag(objectTag)
-                            .GetComponent<StandaloneInputModule>();
-                        eventSystem.enabled = true;
-                        standaloneInpModule.enabled = true;
                         break;
                     case "NoteHolder":
                         var noteHolder = GameObject.FindGameObjectWithTag(objectTag)
