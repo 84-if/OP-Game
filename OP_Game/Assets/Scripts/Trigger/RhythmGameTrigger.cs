@@ -17,7 +17,6 @@ namespace Trigger
 
         private void OnTriggerStay2D (Collider2D other)
         {
-            Debug.Log("Стоит в триггере ритм");
             var dialogueWindow = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Image>();
             var dialogueText = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<TextMeshProUGUI>();
             var textScript = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<DialogueSystem>();

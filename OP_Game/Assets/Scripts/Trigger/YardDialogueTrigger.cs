@@ -4,6 +4,7 @@ using Player;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Blackout;
 
 namespace Trigger
 {
@@ -52,8 +53,9 @@ namespace Trigger
 
             if (other.CompareTag("Player") && !textScript.isTalking)
             {
-
-                movementScript.enabled = true;
+                GameObject.FindGameObjectWithTag("Blackout").GetComponent<Blackout.Blackout>()
+                    .Invoke("Darken", 0);
+                movementScript.enabled = false;
                 textScript.isTalking = true;
                 dialogueWindow.enabled = false;
                 dialogueText.enabled = false;

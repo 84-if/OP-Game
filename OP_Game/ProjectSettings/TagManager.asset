@@ -23,6 +23,7 @@ TagManager:
   - JopaTrigger
   - Friend1
   - Friend2
+  - Blackout
   layers:
   - Default
   - TransparentFX

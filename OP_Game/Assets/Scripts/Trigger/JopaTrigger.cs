@@ -21,10 +21,8 @@ namespace Trigger
             var dialogueWindow = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Image>();
             var dialogueText = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<TextMeshProUGUI>();
             var textScript = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<DialogueSystem>();
-            Debug.Log("Стоит в триггере jopa");
             if (other.CompareTag("Player") && !textScript.isTalking)
             {
-                Debug.Log("О4КО");
                 var movementScript = player.GetComponent<Movement>();
                 movementScript.enabled = true;
                 textScript.isTalking = true;
