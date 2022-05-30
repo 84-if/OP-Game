@@ -25,6 +25,7 @@ namespace Trigger
             var textScript = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<DialogueSystem>();
             var dialogueWindow = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Image>();
             var dialogueText = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<TextMeshProUGUI>();
+            var dialogueNames = GameObject.FindGameObjectWithTag("DialogueNames").GetComponent<TextMeshProUGUI>();
             var player = GameObject.FindGameObjectWithTag("Player");
             var movementScript = player.GetComponent<Movement>();
             if(other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
@@ -36,9 +37,10 @@ namespace Trigger
                 movementScript.enabled = false;
                 dialogueWindow.enabled = true;
                 dialogueText.enabled = true;
+                dialogueNames.enabled = true;
                 textScript.enabled = true;
-                textScript.lines = new [] {"Мам, я пошел", "Давай, сынок", "Пап.. Можно машину взять? Я тихонько.",
-                    "Жирно будет", "Ну ладно", "Будь аккуратнее, не задерживайся.", "Да да да…"};
+                textScript.lines = new [] {"Саша", "Мам, я пошел", "Мама", "Давай, сынок", "Саша", "Пап.. Можно машину взять? Я тихонько.",
+                  "Папа",   "Жирно будет", "Саша", "Ну ладно", "Мама", "Будь аккуратнее, не задерживайся.", "Саша", "Да да да…"};
                 
             }
             if(other.CompareTag("Player") && !textScript.isTalking)
@@ -47,6 +49,7 @@ namespace Trigger
                 textScript.isTalking = true;
                 dialogueWindow.enabled = false;
                 dialogueText.enabled = false;
+                dialogueNames.enabled = false;
                 textScript.enabled = false;
                 player.gameObject.transform.position = new Vector3(1.194f, -0.063f, 0f);
                 chase.leftLimit = 1.009f + 0.9575f;

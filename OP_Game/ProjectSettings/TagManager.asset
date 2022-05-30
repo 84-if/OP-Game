@@ -24,6 +24,8 @@ TagManager:
   - Friend1
   - Friend2
   - Blackout
+  - DialogueNames
+  - Mother
   layers:
   - Default
   - TransparentFX
