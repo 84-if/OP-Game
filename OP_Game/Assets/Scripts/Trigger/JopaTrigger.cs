@@ -33,7 +33,7 @@ namespace Trigger
                 textScript.enabled = false;
                 var girlWalkScript = GameObject.FindGameObjectWithTag("Girl").GetComponent<Mover>();
                 girlWalkScript.enabled = true;
-                // girl.GetComponent<SpriteRenderer>().flipX = false;
+                girl.GetComponent<SpriteRenderer>().flipX = false;
             }
         }
     }
