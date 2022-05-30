@@ -8,14 +8,14 @@ namespace Player
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.tag.Contains("Trigger"))
+            if (other.tag.Contains("Trigger") && !other.CompareTag("JopaTrigger"))
             {
                 _button.SetActive(true);
             }
         }
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.tag.Contains("Trigger"))
+            if (other.tag.Contains("Trigger") && !other.CompareTag("JopaTrigger"))
             {
                 _button.SetActive(false);
             }
