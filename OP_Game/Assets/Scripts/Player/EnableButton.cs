@@ -13,5 +13,12 @@ namespace Player
                 _button.SetActive(true);
             }
         }
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.tag.Contains("Trigger"))
+            {
+                _button.SetActive(false);
+            }
+        }
     }
 }
