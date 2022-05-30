@@ -1338,6 +1338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 456526059}
+  optionsMenuUI: {fileID: 1077462432}
 --- !u!114 &188882449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10081,6 +10082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 0}
+  optionsMenuUI: {fileID: 0}
 --- !u!1 &1349956924
 GameObject:
   m_ObjectHideFlags: 0
