@@ -3180,7 +3180,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!61 &636753371
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3221,7 +3221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPosition: {x: 5.273, y: 0.02552808}
   endPosition: {x: 7.97, y: 0.02552808}
-  step: 0.003
+  step: 0.002
   npc: {fileID: 636753367}
 --- !u!114 &636753373
 MonoBehaviour:
@@ -3856,7 +3856,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!61 &722736683
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3897,7 +3897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPosition: {x: 5.148, y: -0.115472}
   endPosition: {x: 8.107, y: -0.115472}
-  step: 0.003
+  step: 0.002
   npc: {fileID: 722736679}
 --- !u!114 &722736685
 MonoBehaviour:
@@ -3921,7 +3921,7 @@ Animator:
   m_GameObject: {fileID: 722736679}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9b99ca44524fed44b9812dfa927d1c5d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 432feaf7ea60ac144b6dad20cc8720b5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -9226,7 +9226,6 @@ GameObject:
   - component: {fileID: 1392835318}
   - component: {fileID: 1392835320}
   - component: {fileID: 1392835321}
-  - component: {fileID: 1392835322}
   - component: {fileID: 1392835323}
   m_Layer: 0
   m_Name: Player
@@ -9373,32 +9372,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0027483583, y: -0.29046062}
   m_Size: {x: 0.18547955, y: 0.029079322}
   m_Direction: 1
---- !u!61 &1392835322
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1392835315}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.29210442}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.2, y: 0.61}
-    newSize: {x: 0.2, y: 0.61}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.025791198}
-  m_EdgeRadius: 0
 --- !u!114 &1392835323
 MonoBehaviour:
   m_ObjectHideFlags: 0

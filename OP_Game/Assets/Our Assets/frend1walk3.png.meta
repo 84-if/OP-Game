@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d5949e131d5c81340bcc575c4830b164
+guid: 48212c570f85fce4f9ef190bb10b765e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sanyatalk1_0
+      name: frend1walk3_0
       rect:
         serializedVersion: 2
-        x: 21
-        y: 1
-        width: 20
-        height: 61
+        x: 20
+        y: 0
+        width: 27
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 972223f0067533b48985286a954c398a
-      internalID: 652179868
+      spriteID: 926042a9e4adbc4489fd8aca3cf62741
+      internalID: -2040489960
       vertices: []
       indices: 
       edges: []
@@ -147,7 +147,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      sanyatalk1_0: 652179868
+      frend1walk3_0: -2040489960
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

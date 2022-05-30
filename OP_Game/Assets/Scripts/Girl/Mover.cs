@@ -28,6 +28,10 @@ public class Mover : MonoBehaviour
         transform.position = Vector3.Lerp(startPosition, endPosition, progress);
         progress += step;
         if (Math.Abs(endPosition.x - npc.transform.position.x) < 1e-9)
+        {
             npc.GetComponent<Animator>().Play("GirlIdle");
+            npc.GetComponent<Animator>().Play("Friend1Idle");
+            npc.GetComponent<Animator>().Play("Friend2Idle");
+        }
     }
 }
