@@ -6214,7 +6214,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 315, y: 645}
+  m_AnchoredPosition: {x: 362, y: 152}
   m_SizeDelta: {x: 560.4, y: 164.59998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &812124051
@@ -7878,7 +7878,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Multiplier: x1'
+  m_Text: ' '
 --- !u!1 &986564518
 GameObject:
   m_ObjectHideFlags: 0

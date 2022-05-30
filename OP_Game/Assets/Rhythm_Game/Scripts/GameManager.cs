@@ -192,7 +192,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        multiText.text = "Multiplier: x" + currentMultiplier;
+        multiText.text = " ";
         
         scoreText.text = "Score: " + currentScore;
     }
@@ -225,7 +225,7 @@ public class GameManager : MonoBehaviour
         currentMultiplier = 1;
         multiplierTracker = 0;
         
-        multiText.text = "Multiplier: x" + currentMultiplier;
+        multiText.text = " ";
 
         missedHits++;
     }
