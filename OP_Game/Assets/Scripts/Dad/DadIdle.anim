@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MotherTalk
+  m_Name: DadIdle
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,9 +20,9 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 5015165367348047293, guid: 2962910e05185a848a43fc7090869a04, type: 3}
+      value: {fileID: -1256658514, guid: 5cd2a914a366dec4d86939dcc2920317, type: 3}
     - time: 0.083333336
-      value: {fileID: 1515542883, guid: d944ddbeef8c8d2458a902d101df72c9, type: 3}
+      value: {fileID: 2105766493, guid: cc718c93635424d4dbcabab24639989e, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -42,8 +42,8 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 5015165367348047293, guid: 2962910e05185a848a43fc7090869a04, type: 3}
-    - {fileID: 1515542883, guid: d944ddbeef8c8d2458a902d101df72c9, type: 3}
+    - {fileID: -1256658514, guid: 5cd2a914a366dec4d86939dcc2920317, type: 3}
+    - {fileID: 2105766493, guid: cc718c93635424d4dbcabab24639989e, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

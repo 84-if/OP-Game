@@ -21,6 +21,7 @@ namespace Trigger
             var dialogueWindow = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Image>();
             var dialogueText = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<TextMeshProUGUI>();
             var textScript = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<DialogueSystem>();
+            var dialogueNames = GameObject.FindGameObjectWithTag("DialogueNames").GetComponent<TextMeshProUGUI>();
             if (other.CompareTag("Player") && !textScript.isTalking)
             {
                 var movementScript = player.GetComponent<Movement>();
@@ -28,11 +29,11 @@ namespace Trigger
                 textScript.isTalking = true;
                 dialogueWindow.enabled = false;
                 dialogueText.enabled = false;
+                dialogueNames.enabled = false;
                 textScript.enabled = false;
                 var girlWalkScript = GameObject.FindGameObjectWithTag("Girl").GetComponent<Mover>();
                 girlWalkScript.enabled = true;
-                girl.GetComponent<SpriteRenderer>().flipX = false;
-                girl.GetComponent<Animator>().Play("GirlWalk");
+                // girl.GetComponent<SpriteRenderer>().flipX = false;
             }
         }
     }

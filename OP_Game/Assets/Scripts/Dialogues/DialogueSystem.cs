@@ -23,6 +23,7 @@ namespace Dialogues
         public GameObject friendTwo;
         public GameObject player;
         public GameObject mother;
+        public GameObject dad;
         void Start()
         {
             text.text = string.Empty;
@@ -55,11 +56,13 @@ namespace Dialogues
             {
                 case "Мама":
                     return mother;
+                case "Папа":
+                    return dad;
                 case "Саша":
                     return player;
                 case "Лиза":
                     return girl;
-                case "Серега":
+                case "Серёга":
                     return friendOne;
                 case "Кирюха":
                     return friendTwo;
@@ -74,11 +77,13 @@ namespace Dialogues
             {
                 case "Мама":
                     return ("Mother");
+                case "Папа":
+                    return ("Dad");
                 case "Саша":
                     return ("Player");
                 case "Лиза":
                     return ("Girl");
-                case "Серега":
+                case "Серёга":
                     return ("Friend1");
                 case "Кирюха":
                     return ("Friend2");

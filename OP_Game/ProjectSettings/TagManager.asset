@@ -26,6 +26,7 @@ TagManager:
   - Blackout
   - DialogueNames
   - Mother
+  - Dad
   layers:
   - Default
   - TransparentFX

@@ -19,6 +19,7 @@ namespace Trigger
         {
             var dialogueWindow = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Image>();
             var dialogueText = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<TextMeshProUGUI>();
+            var dialogueNames = GameObject.FindGameObjectWithTag("DialogueNames").GetComponent<TextMeshProUGUI>();
             var textScript = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<DialogueSystem>();
             var mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
             var girl = GameObject.FindGameObjectWithTag("Girl");
@@ -33,16 +34,17 @@ namespace Trigger
                 movementScript.enabled = false;
                 dialogueWindow.enabled = true;
                 dialogueText.enabled = true;
+                dialogueNames.enabled = true;
                 textScript.enabled = true;
                 textScript.Invoke("Start", 0);
                 textScript.lines = new[]
                 {
-                    "Я не знаю, как ты это делаешь, но это работает. Привет",
-                    "Ну приветик",
-                    "Я не фотограф, но легко могу представить нас вместе",
-                    "Ахахаха",
-                    "Потанцуем?",
-                    "Ну давай!"
+                    "Саша", "Я не знаю, как ты это делаешь, но это работает. Привет",
+                    "Лиза", "Ну приветик",
+                    "Саша", "Я не фотограф, но легко могу представить нас вместе",
+                    "Лиза", "Ахахаха",
+                    "Саша", "Потанцуем?",
+                    "Лиза", "Ну давай!"
                 };
             }
             if (other.CompareTag("Player") && textScript.isTalking == false)
@@ -58,6 +60,7 @@ namespace Trigger
             var audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioSource>();
             var dialogueWindow = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Image>();
             var dialogueText = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<TextMeshProUGUI>();
+            var dialogueNames = GameObject.FindGameObjectWithTag("DialogueNames").GetComponent<TextMeshProUGUI>();
             var textScript = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<DialogueSystem>();
             var mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
             var girl = GameObject.FindGameObjectWithTag("Girl");
@@ -69,6 +72,7 @@ namespace Trigger
             textScript.isTalking = true;
             dialogueWindow.enabled = false;
             dialogueText.enabled = false;
+            dialogueNames.enabled = false;
             textScript.enabled = false;
             player.gameObject.transform.position = new Vector3(1.657f, -0.08638373f, 0f);
             girl.gameObject.transform.position = new Vector3(2.565f, -0.08638373f, 0f);

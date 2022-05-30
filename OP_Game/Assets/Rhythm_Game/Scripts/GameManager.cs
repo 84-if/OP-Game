@@ -127,13 +127,15 @@ public class GameManager : MonoBehaviour
                 var dialogueText = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<TextMeshProUGUI>();
                 var textScript = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<DialogueSystem>();
                 var jopaTrigger = GameObject.FindGameObjectWithTag("JopaTrigger").GetComponent<JopaTrigger>();
+                var dialogueNames = GameObject.FindGameObjectWithTag("DialogueNames").GetComponent<TextMeshProUGUI>();
                 dialogueWindow.enabled = true;
                 dialogueText.enabled = true;
+                dialogueNames.enabled = true;
                 textScript.enabled = true;
                 textScript.Invoke("Start", 0);
                 textScript.lines = new[]
                 {
-                    "А ты вроде ничего. Пойдём, у меня там друзья."
+                    "Лиза", "А ты вроде ничего. Пойдём, у меня там друзья."
                 };
                 
 

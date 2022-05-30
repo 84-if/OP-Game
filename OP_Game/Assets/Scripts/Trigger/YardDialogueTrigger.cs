@@ -27,6 +27,7 @@ namespace Trigger
             var player = GameObject.FindGameObjectWithTag("Player");
             var dialogueWindow = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Image>();
             var dialogueText = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<TextMeshProUGUI>();
+            var dialogueNames = GameObject.FindGameObjectWithTag("DialogueNames").GetComponent<TextMeshProUGUI>();
             var textScript = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<DialogueSystem>();
             var movementScript = player.GetComponent<Movement>();
             if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
@@ -37,16 +38,17 @@ namespace Trigger
                 movementScript.enabled = false;
                 dialogueWindow.enabled = true;
                 dialogueText.enabled = true;
+                dialogueNames.enabled = true;
                 textScript.enabled = true;
                 textScript.Invoke("Start", 0);
                 textScript.lines = new[]
                 {
-                    "Ребят, я чето и хочу и очкую ключи тащить. Батя дома, мама расстроится если поймает и узнает",
-                    "Да чо ты",
-                    "Да мы немножко, ничо не будет тебе. Чего тут бояться то",
-                    "Ну Саша, ты же крутой. Если покатаешь, можем потом и в кино сходить.",
-                    "Держи. Для храбрости",
-                    "Ладно. 5 минут и поехали."
+                    "Саша", "Ребят, я чето и хочу и очкую ключи тащить. Батя дома, мама расстроится если поймает и узнает",
+                    "Серёга", "Да чо ты",
+                    "Кирюха", "Да мы немножко, ничо не будет тебе. Чего тут бояться то",
+                    "Лиза", "Ну Саша, ты же крутой. Если покатаешь, можем потом и в кино сходить.",
+                    "Серёга", "Держи. Для храбрости",
+                    "Саша", "Ладно. 5 минут и поехали."
                 };
                 
             }
@@ -59,6 +61,7 @@ namespace Trigger
                 textScript.isTalking = true;
                 dialogueWindow.enabled = false;
                 dialogueText.enabled = false;
+                dialogueNames.enabled = false;
                 textScript.enabled = false;
             }
         }
