@@ -21,7 +21,6 @@ namespace Trigger
         // void OnT
         private void OnTriggerStay2D (Collider2D other)
         {
-            
             var textScript = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<DialogueSystem>();
             var dialogueWindow = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Image>();
             var dialogueText = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<TextMeshProUGUI>();
@@ -30,7 +29,7 @@ namespace Trigger
             var movementScript = player.GetComponent<Movement>();
             if(other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
             {
-                
+                GameObject.FindGameObjectWithTag("E Button").SetActive(false);
                 if(movementScript._looksRight)
                     movementScript.Flip();
                 player.GetComponent<Animator>().Play("PlayerIdle");

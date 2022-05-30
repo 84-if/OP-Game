@@ -27,6 +27,11 @@ TagManager:
   - DialogueNames
   - Mother
   - Dad
+  - E Button
+  - MotherTalkTrigger
+  - BoysDialogueTrigger
+  - YardDialogueTrigger
+  - Enter Button
   layers:
   - Default
   - TransparentFX

@@ -29,8 +29,6 @@ namespace Trigger
             var dialogueNames = GameObject.FindGameObjectWithTag("DialogueNames").GetComponent<TextMeshProUGUI>();
             var textScript = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<DialogueSystem>();
             var movementScript = player.GetComponent<Movement>();
-            if(other.CompareTag("Player"))
-                Debug.Log("стоит в триггере");
             if(other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
             {
                 if(!movementScript._looksRight)
@@ -62,7 +60,6 @@ namespace Trigger
             }
             if (other.CompareTag("Player") && !textScript.isTalking)
             {
-                Debug.Log("Диалог окончен стоит в триггере");
                 friendOne.GetComponent<SpriteRenderer>().flipX = false;
                 friendTwo.GetComponent<SpriteRenderer>().flipX = false;
                 friendOne.GetComponent<Mover>().enabled = true;
@@ -71,7 +68,8 @@ namespace Trigger
                 girl.GetComponent<SpriteRenderer>().flipX = false;
                 girl.GetComponent<Mover>().Invoke("Start", 0);
                 girl.GetComponent<Mover>().startPosition = new Vector2(5.152f, -0.08638373f);
-                girl.GetComponent<Mover>().endPosition = new Vector2(8.643f, -0.08638373f);
+                girl.GetComponent<Mover>().endPosition = new Vector2(8.2f, -0.08638373f);
+                girl.GetComponent<Mover>().step = 0.0015f;
                 movementScript.enabled = true;
                 textScript.isTalking = true;
                 dialogueWindow.enabled = false;
