@@ -42,6 +42,7 @@ TagManager:
   - Horizontal GameManager
   - Car Camera
   - Horizontal ScoreText
+  - jopa
   layers:
   - Default
   - TransparentFX
