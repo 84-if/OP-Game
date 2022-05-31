@@ -8719,6 +8719,7 @@ GameObject:
   - component: {fileID: 665269089}
   - component: {fileID: 665269088}
   - component: {fileID: 665269091}
+  - component: {fileID: 665269092}
   m_Layer: 0
   m_Name: Car
   m_TagString: Car
@@ -8889,6 +8890,18 @@ MonoBehaviour:
   endPosition: {x: 11.763, y: -0.1339999}
   step: 0.003
   npc: {fileID: 665269084}
+--- !u!114 &665269092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665269084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc82a7ad7c1e0d541a4a91d9f722742a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &672433432
 RectTransform:
   m_ObjectHideFlags: 0

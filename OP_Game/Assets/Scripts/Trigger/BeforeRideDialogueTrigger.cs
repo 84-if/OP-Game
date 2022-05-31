@@ -49,6 +49,7 @@ namespace Trigger
             }
             if (other.CompareTag("Player") && !textScript.isTalking)
             {
+                GetComponent<BoxCollider2D>().enabled = false;
                 _mainCamera.enabled = false;
                 _carCamera.enabled = true;
                 var car = GameObject.FindGameObjectWithTag("Car");

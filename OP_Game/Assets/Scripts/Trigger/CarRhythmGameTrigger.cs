@@ -18,6 +18,8 @@ namespace Trigger
             var dialogueNames = GameObject.FindGameObjectWithTag("DialogueNames").GetComponent<TextMeshProUGUI>();
             var textScript = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<DialogueSystem>();
             var flag = GameObject.FindGameObjectWithTag("jopa").GetComponent<SpriteRenderer>();
+            if(other.CompareTag("Car"))
+                Debug.Log("Vfibyf в триггере");
             if(other.CompareTag("Car") && flag.enabled)
             {
                 dialogueWindow.enabled = true;
@@ -39,6 +41,7 @@ namespace Trigger
         }
         private void StartRhythmGame()
         {
+            Debug.Log("fuck it");
             var audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioSource>();
             var dialogueWindow = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Image>();
             var dialogueText = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<TextMeshProUGUI>();
