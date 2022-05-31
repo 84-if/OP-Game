@@ -70,6 +70,10 @@ namespace Trigger
                     // .Invoke("Brighten", 0);
                 textScript.isTalking = true;
                 movementScript.enabled = true;
+                GetComponent<BoxCollider2D>().enabled = false;
+                var beforeRideTrigger = GameObject.FindGameObjectWithTag("BeforeRideDialogueTrigger")
+                    .GetComponent<BoxCollider2D>();
+                beforeRideTrigger.enabled = true;
             }
         }
     }

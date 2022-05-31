@@ -34,6 +34,12 @@ TagManager:
   - Enter Button
   - Car
   - GameManagerHorizontal
+  - BeforeRideDialogueTrigger
+  - Horizontal Buttons
+  - Horizontal NoteHolder
+  - Horizontal Audio
+  - Horizontal JamesPlus
+  - Horizontal GameManager
   layers:
   - Default
   - TransparentFX

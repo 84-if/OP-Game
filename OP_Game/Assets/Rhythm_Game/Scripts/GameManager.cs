@@ -117,8 +117,8 @@ public class GameManager : MonoBehaviour
                 var player = GameObject.FindGameObjectWithTag("Player");
                 var mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
                 GameObject.FindGameObjectWithTag("Rhythm Game Trigger").SetActive(false);
-                var jopa = GameObject.FindGameObjectWithTag("BoysDialogueTrigger").GetComponent<BoxCollider2D>();
-                jopa.enabled = true;
+                var boysDialogueTrigger = GameObject.FindGameObjectWithTag("BoysDialogueTrigger").GetComponent<BoxCollider2D>();
+                boysDialogueTrigger.enabled = true;
                 // player.GetComponent<Movement>().enabled = true;
                 mainCamera.enabled = true;
                 var dialogueWindow = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Image>();
