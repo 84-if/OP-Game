@@ -4,6 +4,7 @@ public class NoteObject : MonoBehaviour
 {
     public bool canBePressed;
 
+    public int Direction;
     public KeyCode keyToPress;
 
     public GameObject hitEffect, goodEffect, perfectEffect, missEffect;
@@ -16,19 +17,37 @@ public class NoteObject : MonoBehaviour
 
     void Update()
     {
+        var hit1 = -0.3399999;
+        var hit2 = -0.4199999;
+        var good1 = -0.3699999;
+        var good2 = -0.3899999;
+        
         if (Input.GetKeyDown(keyToPress))
         {
             if (canBePressed)
             {
                 gameObject.SetActive(false);
 
-                if (transform.position.y > -0.3399999 || transform.position.y < -0.4199999)
+                var objectPosition = transform.position.y;
+                
+                if (Direction == 1)
+                {
+                    hit1 = -0.3399999;
+                    hit2 = -0.4199999;
+                    good1 = -0.3699999;
+                    good2 = -0.3899999;
+                    objectPosition = transform.position.x;
+                }
+
+                //if (transform.position.y > -0.3399999 || transform.position.y < -0.4199999) 0.08
+                if (objectPosition > hit1 || objectPosition < hit2)
                 {
                     Debug.Log("Hit");
                     GameManager.instance.NormalHit();
                     Instantiate(hitEffect, transform.position, hitEffect.transform.rotation);
                 }
-                else if(transform.position.y > -0.3699999 || transform.position.y < -0.3899999)
+                //else if(transform.position.y > -0.3699999 || transform.position.y < -0.3899999) 0.02
+                else if(objectPosition > good1 || objectPosition < good2)
                 {
                     Debug.Log("Good");
                     GameManager.instance.GoodHit();
