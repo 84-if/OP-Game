@@ -33,6 +33,7 @@ TagManager:
   - YardDialogueTrigger
   - Enter Button
   - Car
+  - GameManagerHorizontal
   layers:
   - Default
   - TransparentFX
