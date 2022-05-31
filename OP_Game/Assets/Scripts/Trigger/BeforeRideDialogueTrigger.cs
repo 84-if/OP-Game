@@ -10,13 +10,13 @@ namespace Trigger
 {
     public class BeforeRideDialogueTrigger : MonoBehaviour
     {
-        private Camera _ourCamera;
-        public Chase chase;
+        private Camera _mainCamera;
+        private Camera _carCamera;
 
         private void Start()
         {
-            _ourCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-            chase = _ourCamera.GetComponent<Chase>();
+            _mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+            _carCamera = GameObject.FindGameObjectWithTag("Car Camera").GetComponent<Camera>();
         }
 
         public void OnTriggerStay2D(Collider2D other)
@@ -49,15 +49,17 @@ namespace Trigger
             }
             if (other.CompareTag("Player") && !textScript.isTalking)
             {
-                chase._chased = GameObject.FindGameObjectWithTag("Car").transform;
+                _mainCamera.enabled = false;
+                _carCamera.enabled = true;
+                var car = GameObject.FindGameObjectWithTag("Car");
+                car.gameObject.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+                car.GetComponent<Mover>().enabled = true;
                 carMovement.enabled = true;
                 textScript.isTalking = true;
                 dialogueWindow.enabled = false;
                 dialogueText.enabled = false;
                 dialogueNames.enabled = false;
-                textScript.enabled = false; 
-                chase.leftLimit = 10.506f + 0.9575f;
-                chase.rightLimit = 14.338f - 0.958f;
+                textScript.enabled = false;
             }
         }
     }

@@ -40,6 +40,8 @@ TagManager:
   - Horizontal Audio
   - Horizontal JamesPlus
   - Horizontal GameManager
+  - Car Camera
+  - Horizontal ScoreText
   layers:
   - Default
   - TransparentFX
