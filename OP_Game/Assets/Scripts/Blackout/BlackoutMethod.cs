@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Blackout
 {
-    public class Blackout : MonoBehaviour
+    public class BlackoutMethod : MonoBehaviour
     {
         private Image _bg;
 
@@ -14,12 +15,20 @@ namespace Blackout
             _bg = GameObject.FindGameObjectWithTag("Blackout").GetComponent<Image>();
         }
 
-        void Darken()
+        private void Update()
         {
-            StartCoroutine(c_Alpha(1.0f, 3.0f));
+            if (Input.GetKeyDown(KeyCode.Q))
+                Darken();
+            if (Input.GetKeyDown(KeyCode.F))
+                Brighten();
         }
 
-        void Brighten()
+        public void Darken()
+        {
+            StartCoroutine(c_Alpha(1.0f, 2.0f));
+        }
+
+        public void Brighten()
         {
             StartCoroutine(c_Alpha(0.0f, 3.0f));
         }

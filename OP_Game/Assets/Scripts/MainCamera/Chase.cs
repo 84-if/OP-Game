@@ -9,7 +9,7 @@ namespace MainCamera
         
         private Vector2 _offset = new Vector2(0.1f, 0.1f);
         public bool isLeft;
-        private Transform _player;
+        public Transform _chased;
         private int _lastX;
 
         [SerializeField]
@@ -27,27 +27,26 @@ namespace MainCamera
             FindPlayer(isLeft);
         }
 
-        private void FindPlayer(bool playerIsLeft)
+        private void FindPlayer(bool chasedIsLeft)
         {
-            _player = GameObject.FindGameObjectWithTag("Player").transform;
-            _lastX = Mathf.RoundToInt(_player.position.x);
-            if (playerIsLeft)
+            _lastX = Mathf.RoundToInt(_chased.position.x);
+            if (chasedIsLeft)
             {
-                var position = _player.position;
+                var position = _chased.position;
                 transform.position = new Vector3(position.x - _offset.x, position.y - _offset.y, -1);
             }
             else
             {
-                var position = _player.position;
+                var position = _chased.position;
                 transform.position = new Vector3(position.x + _offset.x, position.y + _offset.y, -1);
             }
         }
 
         private void Update() 
         {
-            if (_player)
+            if (_chased)
             {
-                var currentX = Mathf.RoundToInt(_player.position.x);
+                var currentX = Mathf.RoundToInt(_chased.position.x);
                 if (currentX > _lastX)
                 {
                     isLeft = false;
@@ -56,17 +55,17 @@ namespace MainCamera
                 {
                     isLeft = true;
                 }
-                _lastX = Mathf.RoundToInt(_player.position.x);
+                _lastX = Mathf.RoundToInt(_chased.position.x);
 
                 Vector3 target;
                 if (isLeft)
                 {
-                    var position = _player.position;
+                    var position = _chased.position;
                     target = new Vector3(position.x - _offset.x, position.y - _offset.y, -1);
                 }
                 else
                 {
-                    var position = _player.position;
+                    var position = _chased.position;
                     target = new Vector3(position.x + _offset.x, position.y + _offset.y, -1);
                 }
                 

@@ -32,6 +32,7 @@ TagManager:
   - BoysDialogueTrigger
   - YardDialogueTrigger
   - Enter Button
+  - Car
   layers:
   - Default
   - TransparentFX

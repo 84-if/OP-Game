@@ -1,15 +1,14 @@
-using System.Threading;
+using Car;
 using Dialogues;
 using MainCamera;
 using Player;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Blackout;
 
 namespace Trigger
 {
-    public class YardDialogueTrigger : MonoBehaviour
+    public class BeforeRideDialogueTrigger : MonoBehaviour
     {
         private Camera _ourCamera;
         public Chase chase;
@@ -22,7 +21,7 @@ namespace Trigger
 
         public void OnTriggerStay2D(Collider2D other)
         {
-            var girl = GameObject.FindGameObjectWithTag("Girl");
+            var carMovement = GameObject.FindGameObjectWithTag("Car").GetComponent<CarMovement>();
             var friendOne = GameObject.FindGameObjectWithTag("Friend1");
             var friendTwo = GameObject.FindGameObjectWithTag("Friend2");
             var player = GameObject.FindGameObjectWithTag("Player");
@@ -44,32 +43,21 @@ namespace Trigger
                 textScript.Invoke("Start", 0);
                 textScript.lines = new[]
                 {
-                    "Саша", "Ребят, я чето и хочу и очкую ключи тащить. Батя дома, мама расстроится если поймает и узнает",
-                    "Серёга", "Да чо ты",
-                    "Кирюха", "Да мы немножко, ничо не будет тебе. Чего тут бояться то",
-                    "Лиза", "Ну Саша, ты же крутой. Если покатаешь, можем потом и в кино сходить.",
-                    "Серёга", "Держи. Для храбрости",
-                    "Саша", "Ладно. 5 минут и поехали."
+                    "Саша",
+                    "Ключи у меня.",
                 };
-                
             }
-
             if (other.CompareTag("Player") && !textScript.isTalking)
             {
-                // GameObject.FindGameObjectWithTag("Blackout").GetComponent<BlackoutMethod>()
-                //     .Invoke("Darken", 0);
+                chase._chased = GameObject.FindGameObjectWithTag("Car").transform;
+                carMovement.enabled = true;
+                textScript.isTalking = true;
                 dialogueWindow.enabled = false;
                 dialogueText.enabled = false;
                 dialogueNames.enabled = false;
-                textScript.enabled = false;
-                girl.gameObject.transform.position = new Vector3(5.514f, 0.122f, 0f);
-                friendOne.gameObject.transform.position = new Vector3(6.196f, 0.209f, 0f);
-                friendTwo.gameObject.transform.position = new Vector3(5.851f, 0.229f, 0f);
-                player.gameObject.transform.position = new Vector3(8.4f, 0.102f, 0f);
-                // GameObject.FindGameObjectWithTag("Blackout").GetComponent<BlackoutMethod>()
-                    // .Invoke("Brighten", 0);
-                textScript.isTalking = true;
-                movementScript.enabled = true;
+                textScript.enabled = false; 
+                chase.leftLimit = 10.506f + 0.9575f;
+                chase.rightLimit = 14.338f - 0.958f;
             }
         }
     }
