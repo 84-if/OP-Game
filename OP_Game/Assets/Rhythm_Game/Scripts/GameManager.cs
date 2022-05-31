@@ -5,6 +5,7 @@ using TMPro;
 using Trigger;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.ParticleSystemJobs;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -94,10 +95,6 @@ public class GameManager : MonoBehaviour
                             var scoreText = GameObject.FindGameObjectWithTag(objectTag).GetComponent<Text>();
                             scoreText.enabled = false;
                             break;
-                        case "MultiplierText":
-                            var multiplierText = GameObject.FindGameObjectWithTag(objectTag).GetComponent<Text>();
-                            multiplierText.enabled = false;
-                            break;
                         case "NoteHolder":
                             var noteHolder = GameObject.FindGameObjectWithTag(objectTag).GetComponent<BeatScroller>();
                             noteHolder.enabled = false;
@@ -119,14 +116,14 @@ public class GameManager : MonoBehaviour
                 audioManager.loop = true;
                 var player = GameObject.FindGameObjectWithTag("Player");
                 var mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-                var trigger = GameObject.FindGameObjectWithTag("Rhythm Game Trigger").GetComponent<BoxCollider2D>();
-                trigger.enabled = false;
+                GameObject.FindGameObjectWithTag("Rhythm Game Trigger").SetActive(false);
+                var jopa = GameObject.FindGameObjectWithTag("BoysDialogueTrigger").GetComponent<BoxCollider2D>();
+                jopa.enabled = true;
                 // player.GetComponent<Movement>().enabled = true;
                 mainCamera.enabled = true;
                 var dialogueWindow = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Image>();
                 var dialogueText = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<TextMeshProUGUI>();
                 var textScript = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<DialogueSystem>();
-                var jopaTrigger = GameObject.FindGameObjectWithTag("JopaTrigger").GetComponent<JopaTrigger>();
                 var dialogueNames = GameObject.FindGameObjectWithTag("DialogueNames").GetComponent<TextMeshProUGUI>();
                 dialogueWindow.enabled = true;
                 dialogueText.enabled = true;

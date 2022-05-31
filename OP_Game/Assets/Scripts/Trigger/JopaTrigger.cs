@@ -12,8 +12,6 @@ namespace Trigger
 {
     public class JopaTrigger : MonoBehaviour
     {
-        public Collider2D _player;
-
         public void OnTriggerStay2D(Collider2D other)
         {
             var girl = GameObject.FindGameObjectWithTag("Girl");
@@ -34,6 +32,7 @@ namespace Trigger
                 var girlWalkScript = GameObject.FindGameObjectWithTag("Girl").GetComponent<Mover>();
                 girlWalkScript.enabled = true;
                 girl.GetComponent<SpriteRenderer>().flipX = false;
+                GameObject.FindGameObjectWithTag("JopaTrigger").SetActive(false);
             }
         }
     }

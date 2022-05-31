@@ -12,8 +12,8 @@ namespace Trigger
 {
     public class RhythmGameTrigger : MonoBehaviour
     {
-        private readonly List<string> _objectsToEnable = new() {"Rhythm Game Camera", "Track", "Buttons", "ScoreText", 
-            "MultiplierText", "NoteHolder", "GameManager", "GamesPlus"};
+        private readonly List<string> _objectsToEnable = new() {"Rhythm Game Camera", "Track", "Buttons", "ScoreText",
+            "NoteHolder", "GameManager", "GamesPlus"};
 
         private void OnTriggerStay2D (Collider2D other)
         {
@@ -98,10 +98,6 @@ namespace Trigger
                     case "ScoreText":
                         var scoreText = GameObject.FindGameObjectWithTag(objectTag).GetComponent<Text>();
                         scoreText.enabled = true;
-                        break;
-                    case "MultiplierText":
-                        var multiplierText = GameObject.FindGameObjectWithTag(objectTag).GetComponent<Text>();
-                        multiplierText.enabled = true;
                         break;
                     case "NoteHolder":
                         var noteHolder = GameObject.FindGameObjectWithTag(objectTag)
