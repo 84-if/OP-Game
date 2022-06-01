@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Blackout;
 using Dialogues;
 using Player;
+using Rhythm_Game.Scripts;
 using TMPro;
 using UnityEditor;
 using UnityEngine;

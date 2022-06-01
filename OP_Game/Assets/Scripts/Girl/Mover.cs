@@ -16,8 +16,6 @@ public class Mover : MonoBehaviour
 
     public GameObject npc;
 
-    private bool isReachEnd = true;
-    
     // Start is called before the first frame update
     void Start()
     {

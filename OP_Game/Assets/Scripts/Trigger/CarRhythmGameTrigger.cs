@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using Car;
 using Dialogues;
 using Player;
+using Rhythm_Game.Scripts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,6 +17,8 @@ namespace Trigger
         
         public AudioManager theMusic;
         public AudioClip roadMusic;
+        
+        private bool Flag = true;
 
         private void OnTriggerStay2D (Collider2D other)
         {
@@ -25,7 +29,7 @@ namespace Trigger
             var carMover = GameObject.FindGameObjectWithTag("Car").GetComponent<Mover>();
             carMover.enabled = false;
             var flag = GameObject.FindGameObjectWithTag("jopa").GetComponent<SpriteRenderer>();
-            if(other.CompareTag("Car") && flag.enabled)
+            if(other.CompareTag("Car") && flag.enabled && Flag)
             {
                 theMusic.ChangeBGM(roadMusic);
                 dialogueWindow.enabled = true;
@@ -39,6 +43,7 @@ namespace Trigger
                     "Серёга", "Поддай газку, дружище! Чо еле плетёмся?!"
                 };
                 flag.enabled = false;
+                Flag = false;
             }
             if (other.CompareTag("Car") && !textScript.isTalking)
             {
@@ -55,7 +60,9 @@ namespace Trigger
             var dialogueNames = GameObject.FindGameObjectWithTag("DialogueNames").GetComponent<TextMeshProUGUI>();
             var textScript = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<DialogueSystem>();
             var roadScroll = GameObject.FindGameObjectWithTag("Road").GetComponent<Scroll>();
-            roadScroll.speed = 0.65f;
+            var carMovement = GameObject.FindGameObjectWithTag("Car").GetComponent<CarMovement>();
+            carMovement.enabled = true;
+            roadScroll.speed = 0.7f;
             textScript.isTalking = true;
             dialogueWindow.enabled = false;
             dialogueText.enabled = false;
