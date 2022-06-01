@@ -35,10 +35,10 @@ namespace Rhythm_Game.Scripts
                 
                     if (Direction == 1)
                     {
-                        hit1 = 13.97;
-                        hit2 = 13.89;
-                        good1 = 13.94;
-                        good2 = 13.92;
+                        hit1 = 12.48;
+                        hit2 = 12.39;
+                        good1 = 12.45;
+                        good2 = 12.43;
                         objectPosition = transform.position.x;
                     }
 
