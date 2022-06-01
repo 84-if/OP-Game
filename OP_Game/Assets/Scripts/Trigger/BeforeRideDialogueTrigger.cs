@@ -23,8 +23,6 @@ namespace Trigger
 
         public void OnTriggerStay2D(Collider2D other)
         {
-            var friendOne = GameObject.FindGameObjectWithTag("Friend1");
-            var friendTwo = GameObject.FindGameObjectWithTag("Friend2");
             var player = GameObject.FindGameObjectWithTag("Player");
             var blackout = GameObject.FindGameObjectWithTag("Blackout").GetComponent<BlackoutMethod>();
             var dialogueWindow = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Image>();
@@ -32,9 +30,11 @@ namespace Trigger
             var dialogueNames = GameObject.FindGameObjectWithTag("DialogueNames").GetComponent<TextMeshProUGUI>();
             var textScript = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<DialogueSystem>();
             var movementScript = player.GetComponent<Movement>();
+            var eButton = GameObject.FindGameObjectWithTag("E Button").GetComponent<SpriteRenderer>();
             if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E) && Flag)
             {
                 blackout.doneDarken = false;
+                eButton.enabled = false;
                 if (!movementScript._looksRight)
                     movementScript.Flip();
                 player.GetComponent<Animator>().Play("PlayerIdle");
@@ -46,8 +46,7 @@ namespace Trigger
                 textScript.Invoke("Start", 0);
                 textScript.lines = new[]
                 {
-                    "Саша",
-                    "Ключи у меня.",
+                    "Саша", "Ключи у меня.",
                 };
                 Flag = false;
             }
