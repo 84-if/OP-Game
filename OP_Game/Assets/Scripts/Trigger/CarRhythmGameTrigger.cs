@@ -42,6 +42,7 @@ namespace Trigger
             }
             if (other.CompareTag("Car") && !textScript.isTalking)
             {
+                GetComponent<Collider2D>().enabled = false;
                 GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().Direction = 1;
                 GameObject.FindGameObjectWithTag("Horizontal GameManager").GetComponent<GameManager>().Direction = 1;
                 StartCarRhythmGame();
