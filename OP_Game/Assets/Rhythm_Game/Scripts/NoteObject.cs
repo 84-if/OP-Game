@@ -83,6 +83,7 @@ namespace Rhythm_Game.Scripts
                     canBePressed = false;
             
                     GameManager.instance.NoteMissed();
+                    gameObject.SetActive(false);
                     Instantiate(missEffect, transform.position, missEffect.transform.rotation);
                 }
             }
