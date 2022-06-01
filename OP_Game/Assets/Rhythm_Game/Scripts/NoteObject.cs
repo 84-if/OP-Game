@@ -35,7 +35,6 @@ namespace Rhythm_Game.Scripts
                 
                     if (Direction == 1)
                     {
-                        
                         hit1 = 13.97;
                         hit2 = 13.89;
                         good1 = 13.94;
