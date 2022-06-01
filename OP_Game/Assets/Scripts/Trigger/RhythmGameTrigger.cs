@@ -24,9 +24,11 @@ namespace Trigger
             var textScript = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<DialogueSystem>();
             var girl = GameObject.FindGameObjectWithTag("Girl");
             var player = GameObject.FindGameObjectWithTag("Player");
+            var eButton = GameObject.FindGameObjectWithTag("E Button").GetComponent<SpriteRenderer>();
             var movementScript = other.GetComponent<Movement>();
             if(other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E) && Flag)
             {
+                eButton.enabled = false;
                 if(movementScript._looksRight && player.transform.position.x > girl.transform.position.x ||
                    !movementScript._looksRight && player.transform.position.x < girl.transform.position.x)
                     movementScript.Flip();

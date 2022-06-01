@@ -29,9 +29,11 @@ namespace Trigger
             var dialogueText = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<TextMeshProUGUI>();
             var dialogueNames = GameObject.FindGameObjectWithTag("DialogueNames").GetComponent<TextMeshProUGUI>();
             var textScript = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<DialogueSystem>();
+            var eButton = GameObject.FindGameObjectWithTag("E Button").GetComponent<SpriteRenderer>();
             var movementScript = player.GetComponent<Movement>();
             if(other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E) && Flag)
             {
+                eButton.enabled = false;
                 if(!movementScript._looksRight)
                     movementScript.Flip();
                 player.GetComponent<Animator>().Play("PlayerIdle");
@@ -64,7 +66,7 @@ namespace Trigger
                 friendOne.GetComponent<SpriteRenderer>().flipX = false;
                 friendTwo.GetComponent<SpriteRenderer>().flipX = false;
                 friendOne.GetComponent<Mover>().enabled = true;
-                friendTwo.GetComponent<Mover>().enabled = true;
+                friendTwo.GetComponent<Mover>().enabled = true;     
                 girl.GetComponent<Mover>().enabled = true;
                 girl.GetComponent<SpriteRenderer>().flipX = false;
                 girl.GetComponent<Mover>().Invoke("Start", 0);
@@ -78,8 +80,9 @@ namespace Trigger
                 dialogueText.enabled = false;
                 textScript.enabled = false;
                 player.gameObject.transform.position = new Vector3(5.59f, -0.057f, 0f);
-                chase.leftLimit = 5.31f + 0.9575f;
-                chase.rightLimit = 10.421f - 0.958f;
+                chase.leftLimit = 5.31f + 0.806f;
+                chase.rightLimit = 10.421f - 0.81f;
+                chase.upperLimit = 0.3f;
             }
         }
     }
