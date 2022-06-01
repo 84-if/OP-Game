@@ -44,6 +44,7 @@ TagManager:
   - Horizontal ScoreText
   - jopa
   - Car Enter Button
+  - Car Rhythm Game Trigger
   layers:
   - Default
   - TransparentFX

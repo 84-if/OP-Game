@@ -2466,6 +2466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueWindow: {fileID: 0}
   enterButton: {fileID: 0}
+  carEnterButton: {fileID: 0}
 --- !u!95 &126576976
 Animator:
   serializedVersion: 4
@@ -12446,7 +12447,7 @@ GameObject:
   - component: {fileID: 982706481}
   m_Layer: 0
   m_Name: Car Rhythm Game Trigger
-  m_TagString: Untagged
+  m_TagString: Car Rhythm Game Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25438,6 +25439,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueWindow: {fileID: 0}
   enterButton: {fileID: 0}
+  carEnterButton: {fileID: 0}
 --- !u!95 &2076046630
 Animator:
   serializedVersion: 4
