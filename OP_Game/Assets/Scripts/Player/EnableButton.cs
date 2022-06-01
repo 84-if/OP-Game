@@ -4,20 +4,20 @@ namespace Player
 {
     public class EnableButton : MonoBehaviour
     {
-        public GameObject _button;
+        public SpriteRenderer _button;
 
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.tag.Contains("Trigger") && !other.CompareTag("JopaTrigger"))
             {
-                _button.SetActive(true);
+                _button.enabled = true;
             }
         }
         private void OnTriggerExit2D(Collider2D other)
         {
             if (other.tag.Contains("Trigger") && !other.CompareTag("JopaTrigger"))
             {
-                _button.SetActive(false);
+                _button.enabled = false;
             }
         }
     }

@@ -26,10 +26,11 @@ namespace Trigger
             var dialogueText = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<TextMeshProUGUI>();
             var dialogueNames = GameObject.FindGameObjectWithTag("DialogueNames").GetComponent<TextMeshProUGUI>();
             var player = GameObject.FindGameObjectWithTag("Player");
+            var eButton = GameObject.FindGameObjectWithTag("E Button").GetComponent<SpriteRenderer>();
             var movementScript = player.GetComponent<Movement>();
             if(other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
             {
-                GameObject.FindGameObjectWithTag("E Button").SetActive(false);
+                eButton.enabled = false;
                 if(movementScript._looksRight)
                     movementScript.Flip();
                 player.GetComponent<Animator>().Play("PlayerIdle");

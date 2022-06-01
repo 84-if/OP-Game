@@ -6,8 +6,8 @@ namespace Buttons
 {
     public class EnableEnterButton : MonoBehaviour
     {
-        private Image dialogueWindow;
-        private SpriteRenderer enterButton;
+        public Image dialogueWindow;
+        public SpriteRenderer enterButton;
         void Start()
         {
             dialogueWindow = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Image>();

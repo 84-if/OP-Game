@@ -43,6 +43,7 @@ TagManager:
   - Car Camera
   - Horizontal ScoreText
   - jopa
+  - Car Enter Button
   layers:
   - Default
   - TransparentFX
