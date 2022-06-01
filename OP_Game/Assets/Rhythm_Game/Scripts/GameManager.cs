@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using Dialogues;
 using Player;
+using Rhythm_Game.Scripts;
 using TMPro;
 using Trigger;
 using UnityEngine;
@@ -42,10 +44,9 @@ public class GameManager : MonoBehaviour
     public Text percentHitText, normalsText, goodsText, perfectsText, missesText, rankText, finalScoreText;
 
     public bool danceOver;
-    
-    private readonly List<string> _objectsToDisable = new() {"Rhythm Game Trigger", "Rhythm Game Camera", 
-        "Track", "Buttons", "ScoreText", "MultiplierText", "NoteHolder", "GameManager", "GamesPlus"};
-    
+
+    public int Direction = 0;
+
     void Start()
     {
         instance = this;
@@ -58,83 +59,126 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        var audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioSource>();
         if (!startPlaying)
         {
-                startPlaying = true;
-                theBS.hasStarted = true;
-                theMusic.ChangeBGM(danceMusic);
-
-                theMusic.BGM.Play();
+            audioManager.loop = false;
+            startPlaying = true;
+            theBS.hasStarted = true;
+            theMusic.ChangeBGM(danceMusic);
+            theMusic.BGM.Play();
         }
         else
         {
             if (!theMusic.BGM.isPlaying)
             {
                 // resultsScreen.SetActive(true);
-                foreach (var objectTag in _objectsToDisable)
+                if (Direction == 0)
                 {
-                    switch (objectTag)
+                    var objectsToDisable = new List<string>{"Rhythm Game Trigger", "Rhythm Game Camera", 
+                    "Track", "Buttons", "ScoreText", "MultiplierText", "NoteHolder", "GameManager", "GamesPlus"};
+                    foreach (var objectTag in objectsToDisable)
                     {
-                        case "Rhythm Game Trigger":
-                            var gameTrigger = GameObject.FindGameObjectWithTag(objectTag).GetComponent<BoxCollider2D>();
-                            gameTrigger.enabled = false;
-                            break;
-                        case "Rhythm Game Camera":
-                            var gameCamera = GameObject.FindGameObjectWithTag(objectTag).GetComponent<Camera>();
-                            gameCamera.enabled = false;
-                            break;
-                        case "Track":
-                            var track = GameObject.FindGameObjectWithTag(objectTag).GetComponent<AudioSource>();
-                            track.enabled = false;
-                            break;
-                        case "Buttons":
-                            var buttons = GameObject.FindGameObjectWithTag(objectTag).GetComponent<Transform>();
-                            buttons.transform.position = new Vector3(3.39f, -0.3799999f, -50f);
-                            break;
-                        case "ScoreText":
-                            var scoreText = GameObject.FindGameObjectWithTag(objectTag).GetComponent<Text>();
-                            scoreText.enabled = false;
-                            break;
-                        case "NoteHolder":
-                            var noteHolder = GameObject.FindGameObjectWithTag(objectTag).GetComponent<BeatScroller>();
-                            noteHolder.enabled = false;
-                            break;
-                        case "GameManager":
-                            var gameManager = GameObject.FindGameObjectWithTag(objectTag).GetComponent<GameManager>();
-                            gameManager.enabled = false;
-                            break;
-                        case "GamesPlus":
-                            var gamesPlus = GameObject.FindGameObjectWithTag(objectTag).GetComponent<AudioSource>();
-                            gamesPlus.enabled = false;
-                            break;
+                        switch (objectTag)
+                        {
+                            case "Rhythm Game Trigger":
+                                var gameTrigger = GameObject.FindGameObjectWithTag(objectTag)
+                                    .GetComponent<BoxCollider2D>();
+                                gameTrigger.enabled = false;
+                                break;
+                            case "Rhythm Game Camera":
+                                var gameCamera = GameObject.FindGameObjectWithTag(objectTag).GetComponent<Camera>();
+                                gameCamera.enabled = false;
+                                break;
+                            case "Track":
+                                var track = GameObject.FindGameObjectWithTag(objectTag).GetComponent<AudioSource>();
+                                track.enabled = false;
+                                break;
+                            case "Buttons":
+                                var buttons = GameObject.FindGameObjectWithTag(objectTag).GetComponent<Transform>();
+                                buttons.transform.position = new Vector3(3.39f, -0.3799999f, -50f);
+                                break;
+                            case "ScoreText":
+                                var scoreText = GameObject.FindGameObjectWithTag(objectTag).GetComponent<Text>();
+                                scoreText.enabled = false;
+                                break;
+                            case "NoteHolder":
+                                var noteHolder = GameObject.FindGameObjectWithTag(objectTag)
+                                    .GetComponent<BeatScroller>();
+                                noteHolder.enabled = false;
+                                break;
+                            case "GameManager":
+                                var gameManager = GameObject.FindGameObjectWithTag(objectTag)
+                                    .GetComponent<GameManager>();
+                                gameManager.enabled = false;
+                                break;
+                            case "GamesPlus":
+                                var gamesPlus = GameObject.FindGameObjectWithTag(objectTag).GetComponent<AudioSource>();
+                                gamesPlus.enabled = false;
+                                break;
+                        }
+                    }
+                    var dialogueWindow = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Image>();
+                    var dialogueText = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<TextMeshProUGUI>();
+                    var textScript = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<DialogueSystem>();
+                    var dialogueNames = GameObject.FindGameObjectWithTag("DialogueNames").GetComponent<TextMeshProUGUI>();
+                    var mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+                    var boysDialogueTrigger = GameObject.FindGameObjectWithTag("BoysDialogueTrigger")
+                        .GetComponent<BoxCollider2D>();
+                    GameObject.FindGameObjectWithTag("Rhythm Game Trigger").SetActive(false);
+                    boysDialogueTrigger.enabled = true;
+                    mainCamera.enabled = true;
+                    dialogueWindow.enabled = true;
+                    dialogueText.enabled = true;
+                    dialogueNames.enabled = true;
+                    textScript.enabled = true;
+                    textScript.Invoke("Start", 0);
+                    textScript.lines = new[]
+                    {
+                        "Лиза", "А ты вроде ничего. Пойдём, у меня там друзья."
+                    };
+                    theMusic.ChangeBGM(partyMusic);
+                    theMusic.BGM.Play();
+                }
+                else if (Direction == 1)
+                {
+                    var objectsToDisable = new List<string> {"Horizontal Audio", "Horizontal Buttons", 
+                        "Horizontal ScoreText", "Horizontal NoteHolder", "Horizontal GameManager", 
+                        "Horizontal JamesPlus"};
+                    foreach (var objectTag in objectsToDisable)
+                    {
+                        switch (objectTag)
+                        {
+                            case "Horizontal Audio":
+                                var track = GameObject.FindGameObjectWithTag(objectTag).GetComponent<AudioSource>();
+                                track.enabled = false;
+                                break;
+                            case "Horizontal Buttons":
+                                var buttons = GameObject.FindGameObjectWithTag(objectTag).GetComponent<Transform>();
+                                buttons.transform.position = new Vector3(buttons.transform.position.x, 
+                                    buttons.transform.position.y, 0f);
+                                break;
+                            case "Horizontal ScoreText":
+                                var scoreText = GameObject.FindGameObjectWithTag(objectTag).GetComponent<Text>();
+                                scoreText.enabled = false;
+                                break;
+                            case "Horizontal NoteHolder":
+                                var noteHolder = GameObject.FindGameObjectWithTag(objectTag)
+                                    .GetComponent<BeatScroller>();
+                                noteHolder.enabled = false;
+                                break;
+                            case "Horizontal GameManager":
+                                var gameManager = GameObject.FindGameObjectWithTag(objectTag).GetComponent<GameManager>();
+                                gameManager.enabled = false;
+                                break;
+                            case "Horizontal JamesPlus":
+                                var gamesPlus = GameObject.FindGameObjectWithTag(objectTag).GetComponent<AudioSource>();
+                                gamesPlus.enabled = false;
+                                break;
+                        }
                     }
                 }
-                
-                theMusic.ChangeBGM(partyMusic);
-                theMusic.BGM.Play();
-                var audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioSource>();
                 audioManager.loop = true;
-                var player = GameObject.FindGameObjectWithTag("Player");
-                var mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-                GameObject.FindGameObjectWithTag("Rhythm Game Trigger").SetActive(false);
-                var boysDialogueTrigger = GameObject.FindGameObjectWithTag("BoysDialogueTrigger").GetComponent<BoxCollider2D>();
-                boysDialogueTrigger.enabled = true;
-                // player.GetComponent<Movement>().enabled = true;
-                mainCamera.enabled = true;
-                var dialogueWindow = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Image>();
-                var dialogueText = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<TextMeshProUGUI>();
-                var textScript = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<DialogueSystem>();
-                var dialogueNames = GameObject.FindGameObjectWithTag("DialogueNames").GetComponent<TextMeshProUGUI>();
-                dialogueWindow.enabled = true;
-                dialogueText.enabled = true;
-                dialogueNames.enabled = true;
-                textScript.enabled = true;
-                textScript.Invoke("Start", 0);
-                textScript.lines = new[]
-                {
-                    "Лиза", "А ты вроде ничего. Пойдём, у меня там друзья."
-                };
-                
 
                 normalsText.text = "" + normalHits;
                 goodsText.text = goodHits.ToString();

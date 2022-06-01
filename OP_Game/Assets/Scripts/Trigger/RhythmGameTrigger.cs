@@ -21,7 +21,6 @@ namespace Trigger
             var dialogueText = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<TextMeshProUGUI>();
             var dialogueNames = GameObject.FindGameObjectWithTag("DialogueNames").GetComponent<TextMeshProUGUI>();
             var textScript = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<DialogueSystem>();
-            var mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
             var girl = GameObject.FindGameObjectWithTag("Girl");
             var player = GameObject.FindGameObjectWithTag("Player");
             var movementScript = other.GetComponent<Movement>();
@@ -57,7 +56,6 @@ namespace Trigger
 
         private void StartRhythmGame()
         {
-            var audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioSource>();
             var dialogueWindow = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Image>();
             var dialogueText = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<TextMeshProUGUI>();
             var dialogueNames = GameObject.FindGameObjectWithTag("DialogueNames").GetComponent<TextMeshProUGUI>();
@@ -66,7 +64,6 @@ namespace Trigger
             var girl = GameObject.FindGameObjectWithTag("Girl");
             var player = GameObject.FindGameObjectWithTag("Player");
             var movementScript = player.GetComponent<Movement>();
-            audioManager.loop = false;
             movementScript.enabled = false;
             mainCamera.enabled = false;
             textScript.isTalking = true;

@@ -45,6 +45,7 @@ TagManager:
   - jopa
   - Car Enter Button
   - Car Rhythm Game Trigger
+  - Road
   layers:
   - Default
   - TransparentFX

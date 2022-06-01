@@ -15,6 +15,8 @@ public class Mover : MonoBehaviour
     private float progress;
 
     public GameObject npc;
+
+    private bool isReachEnd = true;
     
     // Start is called before the first frame update
     void Start()
@@ -39,7 +41,8 @@ public class Mover : MonoBehaviour
     {
         transform.position = Vector3.Lerp(startPosition, endPosition, progress);
         progress += step;
-        if (Math.Abs(endPosition.x - npc.transform.position.x) < 1e-9)
+        if (Math.Abs(endPosition.x - npc.transform.position.x) < 1e-9
+            && Math.Abs(endPosition.y - npc.transform.position.y) < 1e-9)
         {
             switch (npc.tag)
             {

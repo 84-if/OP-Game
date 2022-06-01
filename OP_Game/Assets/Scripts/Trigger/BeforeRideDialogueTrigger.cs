@@ -21,7 +21,6 @@ namespace Trigger
 
         public void OnTriggerStay2D(Collider2D other)
         {
-            var carMovement = GameObject.FindGameObjectWithTag("Car").GetComponent<CarMovement>();
             var friendOne = GameObject.FindGameObjectWithTag("Friend1");
             var friendTwo = GameObject.FindGameObjectWithTag("Friend2");
             var player = GameObject.FindGameObjectWithTag("Player");
@@ -55,7 +54,6 @@ namespace Trigger
                 var car = GameObject.FindGameObjectWithTag("Car");
                 car.gameObject.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
                 car.GetComponent<Mover>().enabled = true;
-                carMovement.enabled = true;
                 textScript.isTalking = true;
                 dialogueWindow.enabled = false;
                 dialogueText.enabled = false;
