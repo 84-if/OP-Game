@@ -177,6 +177,24 @@ public class GameManager : MonoBehaviour
                                 break;
                         }
                     }
+                    var dialogueWindow = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Image>();
+                    var dialogueText = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<TextMeshProUGUI>();
+                    var textScript = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<DialogueSystem>();
+                    var dialogueNames = GameObject.FindGameObjectWithTag("DialogueNames").GetComponent<TextMeshProUGUI>();
+                    dialogueWindow.enabled = true;
+                    dialogueText.enabled = true;
+                    dialogueNames.enabled = true;
+                    textScript.enabled = true;
+                    textScript.Invoke("Start", 0);
+                    textScript.lines = new[]
+                    {
+                        "Лиза", "Клево, что у тебя машина есть! Сможем теперь вместе кататься!",
+                        "Саша", "Да-а, офигенно!",
+                        "Кирюха", "Менты!",
+                        "Серёга", "Гони давай!!"
+                    };
+                    
+                    
                 }
                 audioManager.loop = true;
 

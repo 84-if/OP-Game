@@ -46,6 +46,7 @@ TagManager:
   - Car Enter Button
   - Car Rhythm Game Trigger
   - Road
+  - Police
   layers:
   - Default
   - TransparentFX
