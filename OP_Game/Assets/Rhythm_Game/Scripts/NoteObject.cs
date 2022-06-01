@@ -17,10 +17,12 @@ public class NoteObject : MonoBehaviour
 
     void Update()
     {
-        var hit1 = -0.3399999;
-        var hit2 = -0.4199999;
-        var good1 = -0.3699999;
-        var good2 = -0.3899999;
+        
+        var objectPosition = transform.position.y;
+        var hit1 = objectPosition + 0.04;
+        var hit2 = objectPosition - 0.04;
+        var good1 = objectPosition + 0.01;
+        var good2 = objectPosition - 0.01;
         
         if (Input.GetKeyDown(keyToPress))
         {
@@ -28,15 +30,14 @@ public class NoteObject : MonoBehaviour
             {
                 gameObject.SetActive(false);
 
-                var objectPosition = transform.position.y;
                 
                 if (Direction == 1)
                 {
-                    hit1 = -0.3399999;
-                    hit2 = -0.4199999;
-                    good1 = -0.3699999;
-                    good2 = -0.3899999;
                     objectPosition = transform.position.x;
+                    hit1 = objectPosition + 0.04;
+                    hit2 = objectPosition - 0.04;
+                    good1 = objectPosition + 0.01;
+                    good2 = objectPosition - 0.01;
                 }
 
                 //if (transform.position.y > -0.3399999 || transform.position.y < -0.4199999) 0.08
