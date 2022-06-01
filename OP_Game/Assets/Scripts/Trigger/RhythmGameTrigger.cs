@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Blackout;
 using Dialogues;
 using Player;
 using TMPro;
@@ -18,6 +19,7 @@ namespace Trigger
 
         private void OnTriggerStay2D (Collider2D other)
         {
+            var blackout = GameObject.FindGameObjectWithTag("Blackout").GetComponent<BlackoutMethod>();
             var dialogueWindow = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Image>();
             var dialogueText = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<TextMeshProUGUI>();
             var dialogueNames = GameObject.FindGameObjectWithTag("DialogueNames").GetComponent<TextMeshProUGUI>();
@@ -27,6 +29,7 @@ namespace Trigger
             var movementScript = other.GetComponent<Movement>();
             if(other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E) && Flag)
             {
+                blackout.doneDarken = false;
                 if(movementScript._looksRight && player.transform.position.x > girl.transform.position.x ||
                    !movementScript._looksRight && player.transform.position.x < girl.transform.position.x)
                     movementScript.Flip();

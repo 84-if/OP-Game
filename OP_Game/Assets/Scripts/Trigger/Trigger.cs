@@ -1,3 +1,4 @@
+using Blackout;
 using Dialogues;
 using MainCamera;
 using UnityEngine;
@@ -21,6 +22,7 @@ namespace Trigger
         // void OnT
         private void OnTriggerStay2D (Collider2D other)
         {
+            var blackout = GameObject.FindGameObjectWithTag("Blackout").GetComponent<BlackoutMethod>();
             var textScript = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<DialogueSystem>();
             var dialogueWindow = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Image>();
             var dialogueText = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<TextMeshProUGUI>();
@@ -45,17 +47,23 @@ namespace Trigger
             }
             if(other.CompareTag("Player") && !textScript.isTalking)
             {
-                movementScript.enabled = true;
-                textScript.isTalking = true;
-                dialogueWindow.enabled = false;
-                dialogueText.enabled = false;
-                dialogueNames.enabled = false;
-                textScript.enabled = false;
-                player.gameObject.transform.position = new Vector3(1.194f, -0.063f, 0f);
-                chase.leftLimit = 1.009f + 0.9575f;
-                chase.rightLimit = 5.17f - 0.958f;
-                chase.upperLimit = 0.5f;
-                chase.bottomLimit = -0.028f;
+                
+                blackout.Darken();
+                if (blackout.doneDarken)
+                {
+                    movementScript.enabled = true;
+                    textScript.isTalking = true;
+                    dialogueWindow.enabled = false;
+                    dialogueText.enabled = false;
+                    dialogueNames.enabled = false;
+                    textScript.enabled = false;
+                    player.gameObject.transform.position = new Vector3(1.194f, -0.063f, 0f);
+                    chase.leftLimit = 1.009f + 0.9575f;
+                    chase.rightLimit = 5.17f - 0.958f;
+                    chase.upperLimit = 0.5f;
+                    chase.bottomLimit = -0.028f;
+                    blackout.Brighten();
+                }
             }
         }  
     }

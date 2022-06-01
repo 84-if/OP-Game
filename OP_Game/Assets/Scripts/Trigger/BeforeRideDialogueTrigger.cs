@@ -1,3 +1,4 @@
+using Blackout;
 using Car;
 using Dialogues;
 using MainCamera;
@@ -25,6 +26,7 @@ namespace Trigger
             var friendOne = GameObject.FindGameObjectWithTag("Friend1");
             var friendTwo = GameObject.FindGameObjectWithTag("Friend2");
             var player = GameObject.FindGameObjectWithTag("Player");
+            var blackout = GameObject.FindGameObjectWithTag("Blackout").GetComponent<BlackoutMethod>();
             var dialogueWindow = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Image>();
             var dialogueText = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<TextMeshProUGUI>();
             var dialogueNames = GameObject.FindGameObjectWithTag("DialogueNames").GetComponent<TextMeshProUGUI>();
@@ -32,6 +34,7 @@ namespace Trigger
             var movementScript = player.GetComponent<Movement>();
             if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E) && Flag)
             {
+                blackout.doneDarken = false;
                 if (!movementScript._looksRight)
                     movementScript.Flip();
                 player.GetComponent<Animator>().Play("PlayerIdle");
@@ -50,17 +53,22 @@ namespace Trigger
             }
             if (other.CompareTag("Player") && !textScript.isTalking)
             {
-                GetComponent<BoxCollider2D>().enabled = false;
-                _mainCamera.enabled = false;
-                _carCamera.enabled = true;
-                var car = GameObject.FindGameObjectWithTag("Car");
-                car.gameObject.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-                car.GetComponent<Mover>().enabled = true;
-                textScript.isTalking = true;
-                dialogueWindow.enabled = false;
-                dialogueText.enabled = false;
-                dialogueNames.enabled = false;
-                textScript.enabled = false;
+                blackout.Darken();
+                if (blackout.doneDarken)
+                {
+                    GetComponent<BoxCollider2D>().enabled = false;
+                    _mainCamera.enabled = false;
+                    _carCamera.enabled = true;
+                    var car = GameObject.FindGameObjectWithTag("Car");
+                    car.gameObject.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+                    car.GetComponent<Mover>().enabled = true;
+                    textScript.isTalking = true;
+                    dialogueWindow.enabled = false;
+                    dialogueText.enabled = false;
+                    dialogueNames.enabled = false;
+                    textScript.enabled = false;
+                    blackout.Brighten();
+                }
             }
         }
     }

@@ -1,3 +1,4 @@
+using Blackout;
 using Dialogues;
 using MainCamera;
 using Player;
@@ -25,6 +26,7 @@ namespace Trigger
             var friendOne = GameObject.FindGameObjectWithTag("Friend1");
             var friendTwo = GameObject.FindGameObjectWithTag("Friend2");
             var player = GameObject.FindGameObjectWithTag("Player");
+            var blackout = GameObject.FindGameObjectWithTag("Blackout").GetComponent<BlackoutMethod>();
             var dialogueWindow = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Image>();
             var dialogueText = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<TextMeshProUGUI>();
             var dialogueNames = GameObject.FindGameObjectWithTag("DialogueNames").GetComponent<TextMeshProUGUI>();
@@ -32,6 +34,7 @@ namespace Trigger
             var movementScript = player.GetComponent<Movement>();
             if(other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E) && Flag)
             {
+                blackout.doneDarken = false;
                 if(!movementScript._looksRight)
                     movementScript.Flip();
                 player.GetComponent<Animator>().Play("PlayerIdle");
@@ -61,25 +64,31 @@ namespace Trigger
             }
             if (other.CompareTag("Player") && !textScript.isTalking)
             {
-                friendOne.GetComponent<SpriteRenderer>().flipX = false;
-                friendTwo.GetComponent<SpriteRenderer>().flipX = false;
-                friendOne.GetComponent<Mover>().enabled = true;
-                friendTwo.GetComponent<Mover>().enabled = true;
-                girl.GetComponent<Mover>().enabled = true;
-                girl.GetComponent<SpriteRenderer>().flipX = false;
-                girl.GetComponent<Mover>().Invoke("Start", 0);
-                girl.GetComponent<Mover>().startPosition = new Vector2(5.152f, -0.08638373f);
-                girl.GetComponent<Mover>().endPosition = new Vector2(8.2f, -0.08638373f);
-                girl.GetComponent<Mover>().step = 0.0015f;
-                movementScript.enabled = true;
-                textScript.isTalking = true;
-                dialogueWindow.enabled = false;
-                dialogueNames.enabled = false;
-                dialogueText.enabled = false;
-                textScript.enabled = false;
-                player.gameObject.transform.position = new Vector3(5.59f, -0.057f, 0f);
-                chase.leftLimit = 5.31f + 0.9575f;
-                chase.rightLimit = 10.421f - 0.958f;
+                blackout.Darken();
+                if (blackout.doneDarken)
+                {
+                    blackout.Brighten();
+                    friendOne.GetComponent<SpriteRenderer>().flipX = false;
+                    friendTwo.GetComponent<SpriteRenderer>().flipX = false;
+                    friendOne.GetComponent<Mover>().enabled = true;
+                    friendTwo.GetComponent<Mover>().enabled = true;
+                    girl.GetComponent<Mover>().enabled = true;
+                    girl.GetComponent<SpriteRenderer>().flipX = false;
+                    girl.GetComponent<Mover>().Invoke("Start", 0);
+                    girl.GetComponent<Mover>().startPosition = new Vector2(5.152f, -0.08638373f);
+                    girl.GetComponent<Mover>().endPosition = new Vector2(8.2f, -0.08638373f);
+                    girl.GetComponent<Mover>().step = 0.0015f;
+                    movementScript.enabled = true;
+                    textScript.isTalking = true;
+                    dialogueWindow.enabled = false;
+                    dialogueNames.enabled = false;
+                    dialogueText.enabled = false;
+                    textScript.enabled = false;
+                    player.gameObject.transform.position = new Vector3(5.59f, -0.057f, 0f);
+                    chase.leftLimit = 5.31f + 0.9575f;
+                    chase.rightLimit = 10.421f - 0.958f;
+                }
+                
             }
         }
     }
