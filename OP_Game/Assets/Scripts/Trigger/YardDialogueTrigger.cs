@@ -13,6 +13,7 @@ namespace Trigger
     {
         private Camera _ourCamera;
         public Chase chase;
+        private bool Flag = true;
 
         private void Start()
         {
@@ -31,7 +32,7 @@ namespace Trigger
             var dialogueNames = GameObject.FindGameObjectWithTag("DialogueNames").GetComponent<TextMeshProUGUI>();
             var textScript = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<DialogueSystem>();
             var movementScript = player.GetComponent<Movement>();
-            if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
+            if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E) && Flag)
             {
                 if (!movementScript._looksRight)
                     movementScript.Flip();
@@ -51,7 +52,7 @@ namespace Trigger
                     "Серёга", "Держи. Для храбрости",
                     "Саша", "Ладно. 5 минут и поехали."
                 };
-                
+                Flag = false;
             }
 
             if (other.CompareTag("Player") && !textScript.isTalking)

@@ -11,6 +11,7 @@ namespace Trigger
     {
         private Camera _ourCamera;
         public Chase chase;
+        private bool Flag = true;
     
         private void Start()
         {
@@ -29,7 +30,7 @@ namespace Trigger
             var dialogueNames = GameObject.FindGameObjectWithTag("DialogueNames").GetComponent<TextMeshProUGUI>();
             var textScript = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<DialogueSystem>();
             var movementScript = player.GetComponent<Movement>();
-            if(other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
+            if(other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E) && Flag)
             {
                 if(!movementScript._looksRight)
                     movementScript.Flip();
@@ -56,7 +57,7 @@ namespace Trigger
                     "Кирюха", "Понятно всё с тобой, очередной лошок",
                     "Саша", "Ладно, пошлите, не лох я"
                 };
-                
+                Flag = false;
             }
             if (other.CompareTag("Player") && !textScript.isTalking)
             {

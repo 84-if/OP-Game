@@ -14,6 +14,7 @@ namespace Trigger
     {
         private readonly List<string> _objectsToEnable = new() {"Rhythm Game Camera", "Track", "Buttons", "ScoreText",
             "NoteHolder", "GameManager", "GamesPlus"};
+        private bool Flag = true;
 
         private void OnTriggerStay2D (Collider2D other)
         {
@@ -25,7 +26,7 @@ namespace Trigger
             var girl = GameObject.FindGameObjectWithTag("Girl");
             var player = GameObject.FindGameObjectWithTag("Player");
             var movementScript = other.GetComponent<Movement>();
-            if(other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
+            if(other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E) && Flag)
             {
                 if(movementScript._looksRight && player.transform.position.x > girl.transform.position.x ||
                    !movementScript._looksRight && player.transform.position.x < girl.transform.position.x)
@@ -46,6 +47,7 @@ namespace Trigger
                     "Саша", "Потанцуем?",
                     "Лиза", "Ну давай!"
                 };
+                Flag = false;
             }
             if (other.CompareTag("Player") && textScript.isTalking == false)
             {
