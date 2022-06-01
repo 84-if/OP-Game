@@ -1,3 +1,4 @@
+using Blackout;
 using Car;
 using Dialogues;
 using TMPro;
@@ -14,6 +15,7 @@ namespace Trigger
             var dialogueText = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<TextMeshProUGUI>();
             var textScript = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<DialogueSystem>();
             var dialogueNames = GameObject.FindGameObjectWithTag("DialogueNames").GetComponent<TextMeshProUGUI>();
+            var theEndBlackout = GameObject.FindGameObjectWithTag("TheEndImage").GetComponent<BlackoutMethod>();
             var car = GameObject.FindGameObjectWithTag("Car");
             var carMover = car.GetComponent<Mover>();
             var police = GameObject.FindGameObjectWithTag("Police");
@@ -25,6 +27,7 @@ namespace Trigger
             carMover.step = 0.005f;
             if (other.CompareTag("Car") && !textScript.isTalking)
             {
+                theEndBlackout.Darken();
                 policeMover.enabled = true;
                 carMover.enabled = true;
                 carMover.Invoke("Start", 0);

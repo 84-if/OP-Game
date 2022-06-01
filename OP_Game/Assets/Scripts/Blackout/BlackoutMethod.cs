@@ -8,13 +8,13 @@ namespace Blackout
 {
     public class BlackoutMethod : MonoBehaviour
     {
-        private Image _bg;
+        public Image _bg;
         public bool doneDarken;
         public bool doneBrighten;
 
         private void Start()
         {
-            _bg = GameObject.FindGameObjectWithTag("Blackout").GetComponent<Image>();
+            
         }
 
         private void Update()

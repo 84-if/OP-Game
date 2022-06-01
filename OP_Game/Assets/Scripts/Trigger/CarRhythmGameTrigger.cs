@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Blackout;
 using Car;
 using Dialogues;
 using Player;
@@ -25,12 +26,14 @@ namespace Trigger
             var dialogueWindow = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Image>();
             var dialogueText = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<TextMeshProUGUI>();
             var dialogueNames = GameObject.FindGameObjectWithTag("DialogueNames").GetComponent<TextMeshProUGUI>();
+            var blackout = GameObject.FindGameObjectWithTag("Blackout").GetComponent<BlackoutMethod>();
             var textScript = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<DialogueSystem>();
             var carMover = GameObject.FindGameObjectWithTag("Car").GetComponent<Mover>();
             carMover.enabled = false;
             var flag = GameObject.FindGameObjectWithTag("jopa").GetComponent<SpriteRenderer>();
             if(other.CompareTag("Car") && flag.enabled && Flag)
             {
+                blackout.doneDarken = false;
                 theMusic.ChangeBGM(roadMusic);
                 dialogueWindow.enabled = true;
                 dialogueText.enabled = true;
