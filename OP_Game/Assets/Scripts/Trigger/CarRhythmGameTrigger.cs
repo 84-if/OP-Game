@@ -12,6 +12,10 @@ namespace Trigger
     {
         private readonly List<string> _objectsToEnable = new() {"Horizontal Audio", "Horizontal Buttons", 
             "Horizontal ScoreText", "Horizontal NoteHolder", "Horizontal GameManager", "Horizontal JamesPlus"};
+        
+        public AudioManager theMusic;
+        public AudioClip roadMusic;
+
         private void OnTriggerStay2D (Collider2D other)
         {
             var dialogueWindow = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Image>();
@@ -23,6 +27,7 @@ namespace Trigger
             var flag = GameObject.FindGameObjectWithTag("jopa").GetComponent<SpriteRenderer>();
             if(other.CompareTag("Car") && flag.enabled)
             {
+                theMusic.ChangeBGM(roadMusic);
                 dialogueWindow.enabled = true;
                 dialogueText.enabled = true;
                 dialogueNames.enabled = true;

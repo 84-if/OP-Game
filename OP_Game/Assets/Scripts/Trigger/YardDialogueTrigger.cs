@@ -14,6 +14,7 @@ namespace Trigger
         private Camera _ourCamera;
         public Chase chase;
         private bool Flag = true;
+        
 
         private void Start()
         {

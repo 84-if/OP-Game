@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 {
     public AudioClip danceMusic;
     public AudioManager theMusic;
-    public AudioClip partyMusic;
+    public AudioClip previousMusic;
 
     public bool startPlaying;
 
@@ -137,7 +137,7 @@ public class GameManager : MonoBehaviour
                     {
                         "Лиза", "А ты вроде ничего. Пойдём, у меня там друзья."
                     };
-                    theMusic.ChangeBGM(partyMusic);
+                    theMusic.ChangeBGM(previousMusic);
                     theMusic.BGM.Play();
                 }
                 else if (Direction == 1)

@@ -3485,6 +3485,8 @@ GameObject:
   m_Component:
   - component: {fileID: 217878591}
   - component: {fileID: 217878590}
+  - component: {fileID: 217878593}
+  - component: {fileID: 217878592}
   m_Layer: 0
   m_Name: Yard
   m_TagString: Untagged
@@ -3559,6 +3561,45 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &217878592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217878589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afe81e085560d284bae36c7b346670e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newTrack: {fileID: 8300000, guid: fb818545c8a6a9b4387f8303b9b02180, type: 3}
+--- !u!61 &217878593
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217878589}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.12, y: 1.28}
+    newSize: {x: 5.12, y: 1.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.12, y: 1.28}
+  m_EdgeRadius: 0
 --- !u!1 &228683969
 GameObject:
   m_ObjectHideFlags: 0
@@ -4360,7 +4401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   danceMusic: {fileID: 8300000, guid: e3903f052f6e1c84385cd598b244e788, type: 3}
   theMusic: {fileID: 228683972}
-  partyMusic: {fileID: 8300000, guid: d4b95ae18d56d3245a52a2dd64938d12, type: 3}
+  previousMusic: {fileID: 8300000, guid: d4b95ae18d56d3245a52a2dd64938d12, type: 3}
   startPlaying: 0
   theBS: {fileID: 1850812363}
   currentScore: 0
@@ -12122,6 +12163,7 @@ GameObject:
   - component: {fileID: 982706479}
   - component: {fileID: 982706478}
   - component: {fileID: 982706481}
+  - component: {fileID: 982706482}
   m_Layer: 0
   m_Name: Car Rhythm Game Trigger
   m_TagString: Car Rhythm Game Trigger
@@ -12234,6 +12276,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be1ccede303b8374888073be205471ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  theMusic: {fileID: 228683972}
+  roadMusic: {fileID: 8300000, guid: 2b4bb3e8ecf4cd44d834791fdc76572c, type: 3}
+--- !u!114 &982706482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982706477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afe81e085560d284bae36c7b346670e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newTrack: {fileID: 8300000, guid: 2b4bb3e8ecf4cd44d834791fdc76572c, type: 3}
 --- !u!1 &983768185
 GameObject:
   m_ObjectHideFlags: 0
@@ -17116,7 +17173,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1395604608}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc91d6b4194ef9749a04ea16016d3ba3, type: 3}
   m_Name: 
@@ -17135,9 +17192,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 168e710ac82d9ad44930c19f852f9427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  danceMusic: {fileID: 8300000, guid: e3903f052f6e1c84385cd598b244e788, type: 3}
+  danceMusic: {fileID: 8300000, guid: b8215d111a9761a49a8950bbb867c31f, type: 3}
   theMusic: {fileID: 228683972}
-  partyMusic: {fileID: 8300000, guid: d4b95ae18d56d3245a52a2dd64938d12, type: 3}
+  previousMusic: {fileID: 8300000, guid: 2b4bb3e8ecf4cd44d834791fdc76572c, type: 3}
   startPlaying: 0
   theBS: {fileID: 1264025282}
   currentScore: 0
