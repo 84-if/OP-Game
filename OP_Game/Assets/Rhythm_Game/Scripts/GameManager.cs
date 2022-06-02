@@ -13,7 +13,6 @@ namespace Rhythm_Game.Scripts
         public AudioClip danceMusic;
         public AudioManager theMusic;
         public AudioClip previousMusic;
-        public AudioClip finalMusic;
 
         public bool startPlaying;
 
@@ -137,7 +136,9 @@ namespace Rhythm_Game.Scripts
                         textScript.Invoke("Start", 0);
                         textScript.lines = new[]
                         {
-                            "Лиза", "А ты вроде ничего. Пойдём, у меня там друзья."
+                            "Лиза", "А ты вроде ничего. Пойдём, у меня там друзья.",
+                            "Саша", "А, да, я иду",
+                            
                         };
                         theMusic.ChangeBGM(previousMusic);
                         theMusic.BGM.Play();
@@ -198,10 +199,11 @@ namespace Rhythm_Game.Scripts
                         {
                             "Лиза", "Клёво, что у тебя машина есть! Сможем теперь вместе кататься!",
                             "Саша", "Да-а, офигенно!",
+                            "Серёга", "Эй, что это там...",
                             "Кирюха", "Менты!",
                             "Серёга", "Гони давай!!"
                         };
-                        theMusic.ChangeBGM(finalMusic);
+                        theMusic.ChangeBGM(previousMusic);
                         theMusic.BGM.Play();
                     }
                     audioManager.loop = true;

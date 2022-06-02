@@ -44,7 +44,8 @@ namespace Dialogues
                 else
                 {
                     StopAllCoroutines();
-                    npc.GetComponent<Animator>().Play(AnimationName(lines[indexName]) + "Idle");
+                    if (AnimationName(lines[indexName]) != null)
+                        npc.GetComponent<Animator>().Play(AnimationName(lines[indexName]) + "Idle");
                     text.text = lines[index];
                 }
             }
@@ -102,7 +103,8 @@ namespace Dialogues
         IEnumerator TypeLine()
         {
             npc = PersonToTalk(lines[indexName]);
-            npc.GetComponent<Animator>().Play(AnimationName(lines[indexName]) + "Talk");
+            if (AnimationName(lines[indexName]) != null)
+                npc.GetComponent<Animator>().Play(AnimationName(lines[indexName]) + "Talk");
             Debug.Log(AnimationName(lines[indexName]));
             name.text = lines[indexName];
             foreach(char c in lines[index])
@@ -110,7 +112,8 @@ namespace Dialogues
                 text.text += c;
                 yield return new WaitForSeconds(TextSpeed);
             }
-            npc.GetComponent<Animator>().Play(AnimationName(lines[indexName]) + "Idle");
+            if (AnimationName(lines[indexName]) != null)
+                npc.GetComponent<Animator>().Play(AnimationName(lines[indexName]) + "Idle");
         }
 
 

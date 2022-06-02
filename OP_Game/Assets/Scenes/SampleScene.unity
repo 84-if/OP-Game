@@ -4757,7 +4757,6 @@ MonoBehaviour:
   danceMusic: {fileID: 8300000, guid: e3903f052f6e1c84385cd598b244e788, type: 3}
   theMusic: {fileID: 228683972}
   previousMusic: {fileID: 8300000, guid: d4b95ae18d56d3245a52a2dd64938d12, type: 3}
-  finalMusic: {fileID: 8300000, guid: b8215d111a9761a49a8950bbb867c31f, type: 3}
   startPlaying: 0
   theBS: {fileID: 1850812363}
   currentScore: 0
@@ -18244,8 +18243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   danceMusic: {fileID: 8300000, guid: b8215d111a9761a49a8950bbb867c31f, type: 3}
   theMusic: {fileID: 228683972}
-  previousMusic: {fileID: 8300000, guid: b8215d111a9761a49a8950bbb867c31f, type: 3}
-  finalMusic: {fileID: 8300000, guid: b8215d111a9761a49a8950bbb867c31f, type: 3}
+  previousMusic: {fileID: 8300000, guid: 2b4bb3e8ecf4cd44d834791fdc76572c, type: 3}
   startPlaying: 0
   theBS: {fileID: 1264025282}
   currentScore: 0
