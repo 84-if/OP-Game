@@ -3,6 +3,7 @@ using Car;
 using Dialogues;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Rhythm_Game.Scripts
@@ -12,6 +13,7 @@ namespace Rhythm_Game.Scripts
         public AudioClip danceMusic;
         public AudioManager theMusic;
         public AudioClip previousMusic;
+        public AudioClip finalMusic;
 
         public bool startPlaying;
 
@@ -122,6 +124,9 @@ namespace Rhythm_Game.Scripts
                         var mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
                         var boysDialogueTrigger = GameObject.FindGameObjectWithTag("BoysDialogueTrigger")
                             .GetComponent<BoxCollider2D>();
+                        var player = GameObject.FindGameObjectWithTag("Player");
+                        var playerAnimator = player.GetComponent<Animator>();
+                        playerAnimator.Play("PlayerIdle");
                         GameObject.FindGameObjectWithTag("Rhythm Game Trigger").SetActive(false);
                         boysDialogueTrigger.enabled = true;
                         mainCamera.enabled = true;
@@ -181,6 +186,7 @@ namespace Rhythm_Game.Scripts
                         var dialogueNames = GameObject.FindGameObjectWithTag("DialogueNames").GetComponent<TextMeshProUGUI>();
                         var car = GameObject.FindGameObjectWithTag("Car");
                         var carMovement = car.GetComponent<CarMovement>();
+                        GameObject.FindGameObjectWithTag("Border").GetComponent<BoxCollider2D>().enabled = false;
                         carMovement.enabled = false;
                         finalTrigger.enabled = true;
                         dialogueWindow.enabled = true;
@@ -195,6 +201,8 @@ namespace Rhythm_Game.Scripts
                             "Кирюха", "Менты!",
                             "Серёга", "Гони давай!!"
                         };
+                        theMusic.ChangeBGM(finalMusic);
+                        theMusic.BGM.Play();
                     }
                     audioManager.loop = true;
 

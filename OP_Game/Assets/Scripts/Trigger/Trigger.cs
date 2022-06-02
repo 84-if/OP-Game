@@ -19,7 +19,6 @@ namespace Trigger
             chase = _ourCamera.GetComponent<Chase>();
         }
 
-        // void OnT
         private void OnTriggerStay2D (Collider2D other)
         {
             var blackout = GameObject.FindGameObjectWithTag("Blackout").GetComponent<BlackoutMethod>();
@@ -48,12 +47,10 @@ namespace Trigger
                     "Папа", "Жирно будет!", 
                     "Саша", "Ну ладно...", 
                     "Мама", "Будь аккуратнее, не задерживайся.", 
-                    "Саша", "Да да да…"};
-                
+                    "Саша", "Да да да..."};
             }
             if(other.CompareTag("Player") && !textScript.isTalking)
             {
-                
                 blackout.Darken();
                 if (blackout.doneDarken)
                 {
@@ -63,9 +60,10 @@ namespace Trigger
                     dialogueText.enabled = false;
                     dialogueNames.enabled = false;
                     textScript.enabled = false;
+                    movementScript.Flip();
                     player.gameObject.transform.position = new Vector3(1.194f, -0.063f, 0f);
-                    chase.leftLimit = 1.009f + 0.9575f;
-                    chase.rightLimit = 5.17f - 0.958f;
+                    chase.leftLimit = 1.009f + 0.806f;
+                    chase.rightLimit = 5.17f - 0.88f;
                     chase.upperLimit = 0.5f;
                     chase.bottomLimit = -0.028f;
                     blackout.Brighten();

@@ -50,6 +50,7 @@ TagManager:
   - Final
   - TheEnd
   - TheEndImage
+  - Border
   layers:
   - Default
   - TransparentFX

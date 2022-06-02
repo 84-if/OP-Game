@@ -35,8 +35,6 @@ namespace Trigger
             {
                 blackout.doneDarken = false;
                 eButton.enabled = false;
-                if (!movementScript._looksRight)
-                    movementScript.Flip();
                 player.GetComponent<Animator>().Play("PlayerIdle");
                 movementScript.enabled = false;
                 dialogueWindow.enabled = true;

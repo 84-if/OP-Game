@@ -127,7 +127,6 @@ namespace Dialogues
             else
             {
                 isTalking = false;
-                // gameObject.SetActive(false);
             }
         }
     }

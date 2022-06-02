@@ -24,7 +24,7 @@ namespace Trigger
             carMover.startPosition.y = car.transform.position.y;
             carMover.endPosition.x = 14.91f;
             carMover.endPosition.y = car.transform.position.y;
-            carMover.step = 0.005f;
+            carMover.step = 0.0018f;
             if (other.CompareTag("Car") && !textScript.isTalking)
             {
                 theEndBlackout.Darken();

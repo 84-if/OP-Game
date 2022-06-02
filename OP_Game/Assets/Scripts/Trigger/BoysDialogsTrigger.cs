@@ -47,20 +47,20 @@ namespace Trigger
                 textScript.enabled = true;
                 textScript.Invoke("Start", 0);
                 textScript.lines = new [] {
-                    "Серёга", "Ну здарова ёпт",
-                    "Саша", "Даров",
+                    "Серёга", "Ну здарова, ёпт!",
+                    "Саша", "Даров.",
                     "Кирюха", "Как жизнь?",
-                    "Саша", "Да нормально",
-                    "Серёга", "Смотрю, ты ровный тип, не хочешь с нами потусить?",
-                    "Саша", "Почему бы и нет",
+                    "Саша", "Да нормально..",
+                    "Серёга", "Смотрю ты ровный тип, не хочешь с нами потусить?",
+                    "Саша", "Почему бы и нет.",
                     "Серёга", "Слыхали, у тебя родаки машину купили.",
-                    "Саша", "Ну да",
+                    "Саша", "Ну да..",
                     "Кирюха", "Не прокатишь?",
                     "Саша", "Не знаю, мне отец ключи не дал.",
-                    "Серёга", "Дак ты возьми, для друзей не жалко",
-                    "Саша", "Да ну не, ребят, нельзя",
-                    "Кирюха", "Понятно всё с тобой, очередной лошок",
-                    "Саша", "Ладно, пошлите, не лох я"
+                    "Серёга", "Дак ты возьми, для друзей не жалко.",
+                    "Саша", "Да ну не, ребят, нельзя.",
+                    "Кирюха", "Понятно всё с тобой, очередной лошок.",
+                    "Саша", "Ладно, пошлите. Не лох я..."
                 };
                 Flag = false;
             }
@@ -77,16 +77,16 @@ namespace Trigger
                     girl.GetComponent<Mover>().enabled = true;
                     girl.GetComponent<SpriteRenderer>().flipX = false;
                     girl.GetComponent<Mover>().Invoke("Start", 0);
-                    girl.GetComponent<Mover>().startPosition = new Vector2(5.152f, -0.08638373f);
+                    girl.GetComponent<Mover>().startPosition = new Vector2(5.854f, -0.08638373f);
                     girl.GetComponent<Mover>().endPosition = new Vector2(8.2f, -0.08638373f);
-                    girl.GetComponent<Mover>().step = 0.0015f;
+                    girl.GetComponent<Mover>().step = 0.0027f;
                     movementScript.enabled = true;
                     textScript.isTalking = true;
                     dialogueWindow.enabled = false;
                     dialogueNames.enabled = false;
                     dialogueText.enabled = false;
                     textScript.enabled = false;
-                    player.gameObject.transform.position = new Vector3(5.59f, -0.057f, 0f);
+                    player.gameObject.transform.position = new Vector3(5.511f, -0.057f, 0f);
                     chase.leftLimit = 5.31f + 0.806f;
                     chase.rightLimit = 10.421f - 0.81f;
                     chase.upperLimit = 0.3f;
